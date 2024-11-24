@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-// import localFont from "next/font/local";
 import "./globals.css";
-
-
+import Header from "./components/Header/header";
 
 export const metadata: Metadata = {
   title: "Furniture",
@@ -17,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Header/>
         {children}
       </body>
     </html>
