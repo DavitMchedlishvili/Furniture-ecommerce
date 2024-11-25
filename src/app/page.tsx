@@ -1,8 +1,9 @@
+import Hero from "./components/Hero/Hero";
 
 export default function Home() {
   return (
-   <div>
-    lets go
+   <div className="mx-auto">
+    <Hero/>
    </div>
     
   );
