@@ -1,5 +1,6 @@
 import Link from "next/link";
 import logo from "../../../../public/assets/logo.png";
+import Image from "next/image";
 
 export const Header = () => {
   return (
@@ -9,7 +10,7 @@ export const Header = () => {
     >
       <div className=" container m-auto w-full flex justify-between  mx-auto p-4">
         <Link href={"/"} className="flex items-end">
-          <img className="w-10 h-10" src={logo.src} alt="logo" />
+          <Image src={logo.src} width={30} height={10} alt="logo" />
           <p className=" text-lg ml-2">JORKO</p>
         </Link>
         <nav className="w-[40%]  flex justify-between items-center">
