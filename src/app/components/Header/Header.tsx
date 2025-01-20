@@ -5,14 +5,14 @@ export const Header = () => {
   return (
     <header
       id="header"
-      className="w-full z-50 fixed bg-transparent shadow-md  text-black"
+      className="  w-full z-50 fixed bg-transparent hover:bg-white transition-all duration-700 shadow-md  text-black"
     >
-      <div className=" w-full flex justify-between border-2 mx-auto border-yellow-300 p-4">
+      <div className=" container m-auto w-full flex justify-between  mx-auto p-4">
         <Link href={"/"} className="flex items-end">
           <img className="w-10 h-10" src={logo.src} alt="logo" />
-          <p className=" text-lg ml-2">Jorko</p>
+          <p className=" text-lg ml-2">JORKO</p>
         </Link>
-        <nav className="w-[50%]  flex justify-between items-center">
+        <nav className="w-[40%]  flex justify-between items-center">
           <Link
             className="border-b-2 border-transparent hover:border-black transition-all duration-300"
             href={"#"}
