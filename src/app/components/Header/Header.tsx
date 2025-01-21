@@ -52,7 +52,7 @@ export const Header = () => {
             Contact
           </Link>
         </nav>
-        <div className=" border-2 border-red-500 flex gap-3 justify-center items-center ">
+        <div className="flex gap-3 justify-center items-center ">
           <LanguageSwitcher/>
           <ThemeSwitcher />
         </div>

@@ -19,15 +19,15 @@ const ThemeSwitcher = () => {
         Select Theme
       </label>
       <select
-        id="theme-select"
-        value={theme}
-        onChange={(e) => setTheme(e.target.value)}
-        className="focus:outline-none focus:ring-0 focus-visible:no-underline rounded-none border-2 uppercase bg-transparent py-1.5 border-black w-13"
-        >
-          <option value="system">:desktop:</option>
-          <option value="light">:sunny:</option>
-          <option value="dark">:crescent_moon:</option>
-      </select>
+  id="theme-select"
+  value={theme}
+  onChange={(e) => setTheme(e.target.value)}
+  className="focus:outline-none focus:ring-0 focus-visible:no-underline rounded-none border-2 uppercase bg-transparent py-1.5 border-black w-13"
+>
+  <option value="system">🖥️</option>
+  <option value="light">☀️</option>
+  <option value="dark">🌙</option>
+</select>
     </div>
   );
 };
