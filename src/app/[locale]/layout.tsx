@@ -15,7 +15,7 @@ export default async function LocaleLayout({
   params: { locale }
 }: LocaleLayoutProps) {
   // Ensure that the incoming `locale` is valid
-  if (!routing.locales.includes(locale)) {
+  if (!routing.locales.includes(locale as "en" | "ka")) {
     notFound();
   }
 
@@ -23,7 +23,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning={true}>
+    <html lang={locale as string} suppressHydrationWarning={true}>
       <body>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider defaultTheme='system' enableSystem attribute='class'>
