@@ -7,7 +7,7 @@ import Header from '../components/Header/Header';
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
-  params: { locale: keyof typeof routing.locales }; // Correct type
+  params: { locale: "en" | "ka"}; // Correct type
 };
 
 export default async function LocaleLayout({
