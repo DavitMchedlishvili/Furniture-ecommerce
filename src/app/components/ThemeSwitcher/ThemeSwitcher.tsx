@@ -22,11 +22,11 @@ const ThemeSwitcher = () => {
         id="theme-select"
         value={theme}
         onChange={(e) => setTheme(e.target.value)}
-        className="focus:outline-none focus:ring-0 focus-visible:no-underline rounded-none border-2 uppercase bg-transparent py-1.5 px-2 border-black"
-      >
-        <option value="system">System</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
+        className="focus:outline-none focus:ring-0 focus-visible:no-underline rounded-none border-2 uppercase bg-transparent py-1.5 border-black w-13"
+        >
+          <option value="system">:desktop:</option>
+          <option value="light">:sunny:</option>
+          <option value="dark">:crescent_moon:</option>
       </select>
     </div>
   );
