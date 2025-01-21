@@ -7,15 +7,18 @@ import Header from '../components/Header/Header';
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
-  params: { locale: "en" | "ka"}; // Correct type
+  params: Promise<{ locale: "en" | "ka" }>; // Make params a promise
 };
 
 export default async function LocaleLayout({
   children,
-  params: { locale }
+  params
 }: LocaleLayoutProps) {
+  // Resolve the params promise
+  const { locale } = await params;
+
   // Ensure that the incoming `locale` is valid
-  if (!routing.locales.includes(locale as "en" | "ka")) {
+  if (!locale || !routing.locales.includes(locale)) {
     notFound();
   }
 
@@ -23,10 +26,10 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale as string} suppressHydrationWarning={true}>
+    <html lang={locale} suppressHydrationWarning={true}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider defaultTheme='system' enableSystem attribute='class'>
+          <ThemeProvider defaultTheme="system" enableSystem attribute="class">
             <Header />
             {children}
           </ThemeProvider>
@@ -35,3 +38,4 @@ export default async function LocaleLayout({
     </html>
   );
 }
+
