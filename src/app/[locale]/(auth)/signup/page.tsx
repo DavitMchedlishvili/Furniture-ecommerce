@@ -1,15 +1,33 @@
+// app/(auth)/signup/page.tsx
+"use client";
+
 import SubmitButton from "@/app/components/Buttons/SubmitButton";
 import Input from "@/app/components/Inputs/input";
-import React from "react";
+import { handleAuthSubmit } from "@/utils/auth/authentication";
+import React, { useState } from "react";
 
 const SignUp = () => {
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <form className="login-form w-full max-w-sm p-6 bg-white border border-gray-300 rounded-lg shadow-md">
+    <div  className="flex items-center justify-center min-h-screen bg-gray-100">
+      <form
+        onSubmit={(e) => handleAuthSubmit(e, "signup", setErrorMessage)}
+        className="login-form w-full max-w-sm p-6 bg-white border border-gray-300 rounded-lg shadow-md"
+      >
         <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">
-          Sign up
+          Sign Up
         </h2>
+        {/* <div>
+          <Input
+            type="fullname"
+            name="fullname"
+            placeholder="Enter your fullname"
+            required
+          />
+        </div> */}
         <div>
+          
           <Input
             type="email"
             name="email"
@@ -24,12 +42,22 @@ const SignUp = () => {
             name="password"
             placeholder="Enter your password"
             required
+            className="min-w-full px-4 py-2 mt-1 border border-black rounded-lg focus:ring-2 focus:ring-black focus:outline-none"
           />
         </div>
-        <SubmitButton text="Sign Up" />
+        {errorMessage && (
+          <div className="text-red-500 mt-4">
+            <strong>{errorMessage}</strong>
+          </div>
+        )}
+        <div className="mt-6">
+
+        <SubmitButton  text="Sign Up" />
+        </div>
       </form>
     </div>
   );
 };
 
 export default SignUp;
+

@@ -3,10 +3,7 @@ import { createClient } from "@/utils/supabase/server";
 
 export async function POST(req: NextRequest) {
   try {
-    const formData = await req.formData();
-    const email = String(formData.get("email"));
-    const password = String(formData.get("password"));
-    const action = String(formData.get("action"));
+    const { email, password, action } = await req.json();
 
     const supabase = await createClient();
 
@@ -35,6 +32,8 @@ export async function POST(req: NextRequest) {
         email,
         password,
       });
+
+      
 
       if (signUpError) {
         console.error("Sign-up error:", signUpError.message);
