@@ -9,6 +9,8 @@ import React, { useState } from "react";
 const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+
+
   return (
     <div  className="flex items-center justify-center min-h-screen bg-gray-100">
       <form
@@ -18,14 +20,6 @@ const SignUp = () => {
         <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">
           Sign Up
         </h2>
-        {/* <div>
-          <Input
-            type="fullname"
-            name="fullname"
-            placeholder="Enter your fullname"
-            required
-          />
-        </div> */}
         <div>
           
           <Input
@@ -52,7 +46,7 @@ const SignUp = () => {
         )}
         <div className="mt-6">
 
-        <SubmitButton  text="Sign Up" />
+        <SubmitButton text="Sign Up" />
         </div>
       </form>
     </div>
