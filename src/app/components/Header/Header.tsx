@@ -1,26 +1,29 @@
-import Link from "next/link";
+"use client"
+
 import logo from "../../../../public/assets/logo.png";
 import Image from "next/image";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import { useRouter } from "next/navigation";
+import { Link } from "@/i18n/routing";
 
 
 export const Header = () => {
-
   const t = useTranslations('Header');
+  // Get the current locale
 
   return (
     <header
       id="header"
-      className="  w-full z-50 fixed bg-transparent hover:bg-white transition-all duration-700 shadow-md  text-black"
+      className="w-full z-50 fixed bg-transparent hover:bg-white transition-all duration-700 shadow-md text-black dark:hover:bg-gray-600"
     >
-      <div className=" container m-auto w-full flex justify-between  mx-auto p-4">
+      <div className="container m-auto w-full flex justify-between mx-auto p-4">
         <Link href={"/"} className="flex items-end">
-          <Image src={logo.src} width={30} height={30} alt="logo" />
-          <p className=" text-lg ml-2">JORKO</p>
+          <Image src={logo.src} width={30} height={30} alt="JORKO Logo" />
+          <p className="text-lg ml-2">JORKO</p>
         </Link>
-        <nav className="w-[40%]  flex justify-between items-center">
+        <nav className="w-[40%] flex justify-between items-center">
           <Link
             className="border-b-2 border-transparent hover:border-black transition-all duration-300"
             href={"#"}
@@ -52,9 +55,12 @@ export const Header = () => {
             Contact
           </Link>
         </nav>
-        <div className="flex gap-3 justify-center items-center ">
-          <LanguageSwitcher/>
+        <div className="flex gap-3 justify-center items-center">
+          <LanguageSwitcher />
           <ThemeSwitcher />
+          <Link href={`/login`}>
+            <Image src="/assets/avatar.png" width={35} height={35} alt="User Avatar" />
+          </Link>
         </div>
       </div>
     </header>
@@ -62,3 +68,4 @@ export const Header = () => {
 };
 
 export default Header;
+
