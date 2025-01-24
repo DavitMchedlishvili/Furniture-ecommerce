@@ -23,7 +23,7 @@ const Input: React.FC<InputProps> = ({
         placeholder={placeholder}
         onChange={onChange}
         required={required}
-        className="w-full p-2 mt-4  border border-black  dark:bg-customBlueGray dark:text-white focus:outline-none focus:ring-1 focus:ring-black"
+        className="w-full p-2 mt-4 border border-black  dark:bg-customBlueGray dark:text-white focus:outline-none focus:ring-1 focus:ring-black"
       />
       {error && <span className="error-message">{error}</span>}
     </div>

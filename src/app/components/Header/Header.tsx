@@ -2,11 +2,12 @@
 
 import logo from "../../../../public/assets/logo.png";
 import Image from "next/image";
-import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import ThemeSwitcher from "../Buttons/ThemeSwitcher/ThemeSwitcher";
 import { useTranslations } from "next-intl";
-import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import LanguageSwitcher from "../Buttons/LanguageSwitcher/LanguageSwitcher";
 import { useRouter } from "next/navigation";
 import { Link } from "@/i18n/routing";
+import ProfileDropDown from "../Buttons/ProfileDropDown/ProfileDropDown";
 
 
 export const Header = () => {
@@ -21,7 +22,7 @@ export const Header = () => {
       <div className="container m-auto w-full flex justify-between mx-auto p-4">
         <Link href={"/"} className="flex items-end">
           <Image src={logo.src} width={30} height={30} alt="JORKO Logo" />
-          <p className="text-lg ml-2">JORKO</p>
+          <p className="text-lg pt-1">JORKO</p>
         </Link>
         <nav className="w-[40%] flex justify-between items-center">
           <Link
@@ -58,9 +59,10 @@ export const Header = () => {
         <div className="flex gap-3 justify-center items-center">
           <LanguageSwitcher />
           <ThemeSwitcher />
-          <Link href={`/login`}>
+          <ProfileDropDown />
+          {/* <Link href={`/login`}>
             <Image src="/assets/avatar.png" width={35} height={35} alt="User Avatar" />
-          </Link>
+          </Link> */}
         </div>
       </div>
     </header>
