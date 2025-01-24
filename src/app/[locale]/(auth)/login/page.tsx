@@ -200,7 +200,7 @@ const Login = () => {
             <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">
               Login
             </h2>
-            <div>
+            <div >
               <Input
                 type="email"
                 name="email"
@@ -208,6 +208,7 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                className="p-2 mt-4"
               />
             </div>
             <div>
