@@ -10,11 +10,11 @@ export async function POST(req: NextRequest) {
     cookies: () => cookieStore,
   });
 
-  const { data: session, error: sessionError } =
-    await supabase.auth.getSession();
-  console.log("Session data:", session);
-  if (sessionError) {
-    console.error("Session error:", sessionError);
+  const { data: user, error: userError } =
+    await supabase.auth.getUser();
+  console.log("user data:", user);
+  if (userError) {
+    console.error("user error:", userError);
   }
 
   await supabase.auth.signOut();
