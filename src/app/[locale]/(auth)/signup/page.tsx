@@ -1,4 +1,3 @@
-// app/(auth)/signup/page.tsx
 "use client";
 
 import SubmitButton from "@/app/components/Buttons/SubmitButton";
@@ -15,6 +14,7 @@ const SignUp = () => {
   if(isLoading){
     return <LoadingSpinner />;
   }
+
   return (
     <div  className="flex items-center justify-center min-h-screen bg-gray-100">
       <form

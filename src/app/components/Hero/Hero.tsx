@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
       </video>
 
       <div className="absolute inset-0 flex top-[65%] items-center justify-center">
-        <button className="text-black border-2 border-black py-3 px-5 hover:text-lg hover:bg-white hover:py-3.5  hover:px-6 transition-all duration-500">
+        <button className="text-black border-2 border-black py-3 px-5 hover:text-lg hover:bg-white hover:py-3.5  hover:px-5.5 transition-all duration-500">
           Learn More
         </button>
       </div>
