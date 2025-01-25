@@ -1,11 +1,10 @@
 "use client"
 
-import logo from "../../../../public/assets/logo.png";
+import logo from "../../../../../public/assets/logo.png";
 import Image from "next/image";
 import ThemeSwitcher from "../Buttons/ThemeSwitcher/ThemeSwitcher";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "../Buttons/LanguageSwitcher/LanguageSwitcher";
-import { useRouter } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import ProfileDropDown from "../Buttons/ProfileDropDown/ProfileDropDown";
 
@@ -17,7 +16,7 @@ export const Header = () => {
   return (
     <header
       id="header"
-      className="w-full z-50 fixed bg-transparent hover:bg-white transition-all duration-700 shadow-md text-black dark:hover:bg-gray-600"
+      className="w-full z-50 fixed bg-transparent hover:bg-white transition-all duration-700 shadow-md text-black dark:hover:bg-slate-800"
     >
       <div className="container m-auto w-full flex justify-between mx-auto p-4">
         <Link href={"/"} className="flex items-end">

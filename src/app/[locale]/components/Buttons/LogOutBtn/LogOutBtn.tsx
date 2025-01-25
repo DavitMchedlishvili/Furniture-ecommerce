@@ -22,7 +22,7 @@ const LogOutBtn = () => {
       };
 
   return (
-    <button className='w-full text-left px-2 py-2 text-sm text-black hover:bg-gray-100 block' onClick={handleLogout} >Log Out</button>
+    <button className='w-full text-left px-2 py-2 text-sm text-black hover:bg-gray-100 block dark:bg-slate-700 dark:hover:bg-slate-500' onClick={handleLogout} >Log Out</button>
   )
 }
 

@@ -1,7 +1,7 @@
 "use client";
 
-import SubmitButton from "@/app/components/Buttons/SubmitButton";
-import Input from "@/app/components/Inputs/input";
+import SubmitButton from "@/app/[locale]/components/Buttons/SubmitButton";
+import Input from "@/app/[locale]/components/Inputs/input";
 import { handleAuthSubmit } from "@/utils/auth/authentication";
 import React, { useState } from "react";
 import LoadingSpinner from "../../loading";
@@ -16,12 +16,12 @@ const SignUp = () => {
   }
 
   return (
-    <div  className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div  className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-800">
       <form
         onSubmit={(e) => handleAuthSubmit(e, "signup", setErrorMessage)}
-        className="login-form w-full max-w-sm p-6 bg-white border border-gray-300 rounded-lg shadow-md"
+        className="login-form w-full max-w-sm p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800"
       >
-        <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">
+        <h2 className="text-2xl font-bold text-center text-gray-700 mb-6 dark:text-black">
           Sign Up
         </h2>
         <div>

@@ -47,14 +47,14 @@ const ProfileDropDown = () => {
       {/* Dropdown Menu */}
       <div
         id="dropdown-menu"
-        className={`absolute right-0 mt- w-[80px] bg-white border-2 border-black  shadow-lg ${isDropdownOpen ? '' : 'hidden'}`}
+        className={`absolute   w-[80px] bg-white border-2 border-black  shadow-lg ${isDropdownOpen ? '' : 'hidden'}`}
       >
         {isUserLoggedIn ? (
           // Options for logged-in users
           <>
             <Link
               href="/profile"
-              className="px-2 py-2 text-sm text-black hover:bg-gray-100 block"
+              className="px-2 py-1 text-sm text-black hover:bg-gray-100 block dark:bg-slate-700 dark:hover:bg-slate-500"
             >
               Profile
             </Link>
@@ -65,13 +65,13 @@ const ProfileDropDown = () => {
           <>
             <Link
               href="/login"
-              className="px-2 py-2 text-sm text-black hover:bg-gray-100 block"
+              className="px-2 py-1 text-sm text-black hover:bg-gray-100 block dark:bg-slate-700 dark:hover:bg-slate-500"
             >
               Log In
             </Link>
             <Link
               href="/signup"
-              className="px-2 py-2 text-sm text-black hover:bg-gray-100 block"
+              className="px-2 py-1 text-sm text-black hover:bg-gray-100 block dark:bg-slate-700 dark:hover:bg-slate-500"
             >
               Sign Up
             </Link>

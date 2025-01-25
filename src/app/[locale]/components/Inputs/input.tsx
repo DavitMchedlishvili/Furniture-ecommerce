@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputProps } from '../../../types/InputProps';
+import { InputProps } from '../../../../types/InputProps';
 
 
 const Input: React.FC<InputProps> = ({
@@ -23,7 +23,7 @@ const Input: React.FC<InputProps> = ({
         placeholder={placeholder}
         onChange={onChange}
         required={required}
-        className="w-full p-2 mt-4 border border-black  dark:bg-customBlueGray dark:text-white focus:outline-none focus:ring-1 focus:ring-black"
+        className="w-full p-2 mt-4 border border-black  dark:bg-slate-600 dark:text-white focus:outline-none focus:ring-1 focus:ring-black"
       />
       {error && <span className="error-message">{error}</span>}
     </div>

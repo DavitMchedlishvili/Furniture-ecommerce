@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import SubmitButton from "@/app/components/Buttons/SubmitButton";
-import Input from "@/app/components/Inputs/input";
+import SubmitButton from "@/app/[locale]/components/Buttons/SubmitButton";
+import Input from "@/app/[locale]/components/Inputs/input";
 import { handleAuthSubmit } from "@/utils/auth/authentication";
 import { Link } from "@/i18n/routing";
 import { supabase } from "@/utils/supabase/supabase";
@@ -62,7 +62,7 @@ const Login = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-800">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -72,11 +72,11 @@ const Login = () => {
             handleAuthSubmit(e, "login", setErrorMessage);
           }
         }}
-        className="login-form w-full max-w-sm p-6 bg-white border border-gray-300 rounded-lg shadow-md"
+        className="login-form w-full max-w-sm p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800"
       >
         {!resetPassword && (
           <div>
-            <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">
+            <h2 className="text-2xl font-bold text-center text-gray-700 mb-6 dark:text-black">
               Login
             </h2>
             <div>
@@ -126,7 +126,7 @@ const Login = () => {
 
         {resetPassword && (
           <div className="flex flex-col gap-4">
-            <h2 className="text-2xl font-bold text-center text-gray-700 mb-3">
+            <h2 className="text-2xl font-bold text-center text-gray-700 mb-3 dark:text-black">
               Reset Password
             </h2>
             <div>

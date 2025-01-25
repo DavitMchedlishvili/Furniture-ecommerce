@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Input from "@/app/components/Inputs/input";
+import Input from "@/app/[locale]/components/Inputs/input";
 import { supabase } from "@/utils/supabase/supabase";
 
 
@@ -35,15 +35,15 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-800 dark:text-white">
       <form
-        className="login-form w-full max-w-sm p-6 bg-white border border-gray-300 rounded-lg shadow-md"
+        className="login-form w-full max-w-sm p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800"
         onSubmit={(e) => {
           e.preventDefault();
           confirmPasswords();
         }}
       >
-        <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">
+        <h2 className="text-2xl font-bold text-center text-gray-700 mb-6 dark:text-black">
           Reset Password
         </h2>
 
@@ -69,7 +69,7 @@ const ResetPassword = () => {
         </div>
         <button
           type="submit"
-          className="w-full mt-2 py-2 text-black bg-transparent border-2 border-black hover:bg-gray-200"
+          className="w-full mt-2 py-2 text-black bg-transparent border-2 border-black hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-500"
         >
           Confirm
         </button>

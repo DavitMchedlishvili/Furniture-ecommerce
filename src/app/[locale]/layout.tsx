@@ -3,7 +3,7 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { ThemeProvider } from 'next-themes';
-import Header from '../components/Header/Header';
+import Header from './components/Header/Header';
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
