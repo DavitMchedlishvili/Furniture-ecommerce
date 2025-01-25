@@ -14,13 +14,15 @@ const LoadingSpinner = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center min-h-screen dark:bg-slate-800 ">
+    <div className="flex items-center justify-center min-h-screen ">
       <Image
         src={loadingGif} // Path to your loading GIF
         alt="Loading..."
         width={400} // Width of the image
         height={400} // Height of the image
+        className='w-auto h-auto'
         loading="lazy"
+        
       />
     </div>
   );
