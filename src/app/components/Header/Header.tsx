@@ -27,7 +27,7 @@ export const Header = () => {
         <nav className="w-[40%] flex justify-between items-center">
           <Link
             className="border-b-2 border-transparent hover:border-black transition-all duration-300"
-            href={"#"}
+            href={"/products"}
           >
             {t('Products')}
           </Link>
