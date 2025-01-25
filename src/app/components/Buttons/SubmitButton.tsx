@@ -2,6 +2,7 @@ import React from "react";
 
 interface SubmitButtonProps {
   text: string;
+  disabled?: boolean;
 }
 
 const SubmitButton: React.FC<SubmitButtonProps> = ({ text }) => {

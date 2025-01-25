@@ -5,12 +5,16 @@ import SubmitButton from "@/app/components/Buttons/SubmitButton";
 import Input from "@/app/components/Inputs/input";
 import { handleAuthSubmit } from "@/utils/auth/authentication";
 import React, { useState } from "react";
+import LoadingSpinner from "../../loading";
 
 const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false); // Loading state
 
 
-
+  if(isLoading){
+    return <LoadingSpinner />;
+  }
   return (
     <div  className="flex items-center justify-center min-h-screen bg-gray-100">
       <form

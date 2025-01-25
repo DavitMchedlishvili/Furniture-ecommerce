@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '@/utils/supabase/supabase';
 import Input from '@/app/components/Inputs/input';
+import LoadingSpinner from '../../loading';
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState({
@@ -110,7 +111,7 @@ const ProfilePage = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner />; // Show loading spinner while fetching data
   }
 
   if (error) {
