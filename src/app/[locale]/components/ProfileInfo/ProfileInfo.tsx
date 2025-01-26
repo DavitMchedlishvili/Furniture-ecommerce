@@ -1,10 +1,10 @@
-'use client';
-import React, { useState, useEffect } from 'react';
-import { getUserProfile } from '../../hooks/getUserProfile';
-import Input from '@/app/[locale]/components/Inputs/input';
-import LoadingSpinner from '../../loading';
-import { supabase } from '@/utils/supabase/supabase';
-import { ProfileProps } from '@/types/ProfileProps';
+"use client";
+import React, { useState, useEffect } from "react";
+import Input from "@/app/[locale]/components/Inputs/input";
+import LoadingSpinner from "../../loading";
+import { supabase } from "@/utils/supabase/supabase";
+import { ProfileProps } from "@/types/ProfileProps";
+import SubmitButton from "../Buttons/SubmitButton";
 
 const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
   const [userProfile, setUserProfile] = useState<ProfileProps>(profile);
@@ -15,7 +15,9 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
     setUserProfile(profile); // Set initial profile state from the prop
   }, [profile]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setUserProfile((prevState) => ({
       ...prevState,
@@ -26,31 +28,30 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
   const handleSaveProfile = async () => {
     try {
       setLoading(true);
-  
+
       // Ensure we're using the correct profile data (either state or prop)
       const { error: updateError } = await supabase
-        .from('profiles')
+        .from("profiles")
         .update({
           name: userProfile.name,
           lastname: userProfile.lastname,
           avatar_url: userProfile.avatar_url,
           date_of_birth: userProfile.date_of_birth,
         }) // Use the current userProfile state
-        .eq('user_id', profile.user_id); // Assuming 'profile.id' is the user_id of the current profile
-  
+        .eq("user_id", profile.user_id); // Assuming 'profile.id' is the user_id of the current profile
+
       if (updateError) {
         throw updateError;
       }
-  
-      alert('Profile updated successfully!');
+
+      alert("Profile updated successfully!");
     } catch (error) {
       setError((error as Error).message);
     } finally {
       setLoading(false);
     }
-    console.log(profile, profile.user_id);  // This logs the profile to check the profile object
+    console.log(profile, profile.user_id); // This logs the profile to check the profile object
   };
-  
 
   if (loading) {
     return <LoadingSpinner />; // Show loading spinner while fetching data
@@ -101,13 +102,11 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
             onChange={handleInputChange}
           />
         </div>
-        <button
-          className="w-full mt-2 py-2 text-black bg-transparent border-2 border-black hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-500"
-          onClick={handleSaveProfile}
+        <SubmitButton
+          text={loading ? "Saving..." : "Update Profile"}
           disabled={loading}
-        >
-          {loading ? 'Saving...' : 'Update Profile'}
-        </button>
+          onClick={handleSaveProfile}
+        />
       </div>
     </div>
   );

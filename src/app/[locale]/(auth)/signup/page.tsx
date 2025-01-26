@@ -24,8 +24,8 @@ const SignUp = () => {
         <h2 className="text-2xl font-bold text-center text-gray-700 mb-6 dark:text-black">
           Sign Up
         </h2>
-        <div>
-          
+        <div className="mb-4">
+              <label className="font-bold text-gray-700 dark:text-black">Email</label>
           <Input
             type="email"
             name="email"
@@ -34,7 +34,8 @@ const SignUp = () => {
             className="min-w-full px-4 py-2 mt-1 border border-black rounded-lg focus:ring-2 focus:ring-black focus:outline-none"
           />
         </div>
-        <div>
+        <div className="mb-4">
+        <label className="font-bold text-gray-700 dark:text-black">Password</label>
           <Input
             type="password"
             name="password"
