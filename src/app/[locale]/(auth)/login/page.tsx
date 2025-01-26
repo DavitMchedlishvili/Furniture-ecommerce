@@ -79,7 +79,8 @@ const Login = () => {
             <h2 className="text-2xl font-bold text-center text-gray-700 mb-6 dark:text-black">
               Login
             </h2>
-            <div>
+            <div className="mb-4">
+              <label className="font-bold">Email</label>
               <Input
                 type="email"
                 name="email"
@@ -90,7 +91,8 @@ const Login = () => {
                 className="p-2 mt-4"
               />
             </div>
-            <div>
+            <div className="mb-4">
+            <label className="font-bold">Password</label>
               <Input
                 type="password"
                 name="password"
