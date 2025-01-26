@@ -19,9 +19,9 @@ export const Header = () => {
       className="w-full z-50 fixed bg-transparent hover:bg-white transition-all duration-700 shadow-md text-black dark:hover:bg-slate-800"
     >
       <div className="container m-auto w-full flex justify-between mx-auto p-4">
-        <Link href={"/"} className="flex items-end">
-          <Image src={logo.src} width={30} height={30} alt="JORKO Logo" />
-          <p className="text-lg pt-1">JORKO</p>
+        <Link href={"/"} className="flex  items-center">
+          <Image src={logo.src} width={50} height={50} alt="logo" />
+          <p className="text-lg pt-1">14 CHAIR</p>
         </Link>
         <nav className="w-[40%] flex justify-between items-center">
           <Link

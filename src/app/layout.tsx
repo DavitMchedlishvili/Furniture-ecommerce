@@ -3,7 +3,7 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
-  title: "Jorko",
+  title: "14 Chair",
   description: "Furniture e-commerce site",
 };
 
