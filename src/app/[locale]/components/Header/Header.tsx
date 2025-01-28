@@ -20,7 +20,7 @@ export const Header = () => {
     >
       <div className="container m-auto w-full flex justify-between mx-auto p-4">
         <Link href={"/"} className="flex  items-center">
-          <Image src={logo.src} width={50} height={50} alt="logo" />
+          <Image src={logo.src} width={50} height={50} alt="logo" priority/>
           <p className="text-lg pt-1">14 CHAIR</p>
         </Link>
         <nav className="w-[40%] flex justify-between items-center">

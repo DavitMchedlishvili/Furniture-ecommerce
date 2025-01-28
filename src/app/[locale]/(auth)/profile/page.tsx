@@ -11,9 +11,6 @@ const ProfilePage = async () => {
 
   return (
     <ProfileInfo profile={profile} />
-    // <div>
-    //   profile
-    // </div>
   );
 }
 
