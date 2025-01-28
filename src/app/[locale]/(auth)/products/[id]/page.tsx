@@ -9,7 +9,7 @@ interface ProductPageProps {
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
-  const { locale, id } = await params; // Destructure both `locale` and `id` from `params`
+  const { locale, id } = params; // Directly destructure params, no need to `await`
 
   // Create the Supabase client for querying data
   const supabase = await createClient();
@@ -31,12 +31,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const woodType = locale === "en" ? data.wood_type_en : data.wood_type_ka;
 
   return (
-    <div className="flex flex-col  items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-800">
-      <div className="flex  w-[80%]  p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-800">
+      <div className="flex w-[80%] p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
         <div className="image w-[50%] bg-white items-center flex justify-center">
           <img src={data.image} alt={data.name} className="max-w-lg w-full" />
         </div>
-        <div className="content  w-[50%] p-20 border-l-2 border-black bg-white">
+        <div className="content w-[50%] p-20 border-l-2 border-black bg-white">
           <ul className="flex flex-col justify-center gap-3">
             <li className="text-3xl font-bold">{name}</li>
             <li className="mt-4 text-xl">Color: {color}</li>
