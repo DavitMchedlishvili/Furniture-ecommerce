@@ -16,7 +16,7 @@ export const Header = () => {
   return (
     <header
       id="header"
-      className="w-full z-50 fixed bg-transparent hover:bg-white transition-all duration-700 shadow-md text-black dark:hover:bg-slate-800"
+      className="w-full z-50 fixed bg-transparent hover:bg-white transition-all duration-700 shadow-md text-black dark:hover:bg-slate-900"
     >
       <div className="container m-auto w-full flex justify-between mx-auto p-4">
         <Link href={"/"} className="flex  items-center">

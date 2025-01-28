@@ -36,13 +36,13 @@ export default function LanguageSwitcher() {
         <div className="absolute right- mt-2 w-30 bg-white   border-2 border-black shadow-lg z-10">
           <button
             onClick={() => handleLocaleChange('en')}
-            className="w-full text-left px-2 py-1   hover:bg-gray-100 dark:bg-slate-700 dark:hover:bg-slate-500"
+            className="w-full text-left px-2 py-1   hover:bg-gray-100 dark:bg-slate-800 dark:hover:bg-slate-500"
           >
             EN
           </button>
           <button
             onClick={() => handleLocaleChange('ka')}
-            className="w-full text-left px-2 py-1  hover:bg-gray-100 dark:bg-slate-700 dark:hover:bg-slate-500"
+            className="w-full text-left px-2 py-1  hover:bg-gray-100 dark:bg-slate-800 dark:hover:bg-slate-500"
           >
             KA
           </button>
