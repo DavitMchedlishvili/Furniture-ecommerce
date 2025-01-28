@@ -1,4 +1,3 @@
-import { ProductProps } from '@/types/ProductProps';
 import { createClient } from '@/utils/supabase/server';
 
 const getProducts = async () => {

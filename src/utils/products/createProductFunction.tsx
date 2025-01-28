@@ -14,23 +14,26 @@ export async function createProductFunction(formData: FormData) {
       return { success: false, message: 'User not authenticated.' };
     }
 
-    const name = formData.get("name") as string;
-    const description = formData.get("description") as string;
+    const name= formData.get("name") as string;
+    const name_ka= formData.get("name_ka") as string;
+    const description_en = formData.get("description_en") as string;
+    const description_ka = formData.get("description_ka") as string;
     const image = formData.get("image") as string;
     const price = Number(formData.get('price'));
-    const category = formData.get('category') as string;
-    const color = formData.get('color') as string;
+    const category= formData.get('category') as string;
+    const color_en = formData.get('color_en') as string;
+    const color_ka = formData.get('color_ka') as string;
     const height = formData.get('height') as string;
     const total_height = formData.get('totalHeight') as string;
     const seat_height = formData.get("seatHeight") as string;
     const width = formData.get("width") as string;
-    const wood_type = formData.get("woodType") as string;
+    const wood_type_en = formData.get("woodType_en") as string;
+    const wood_type_ka = formData.get("woodType_ka") as string;
     const weight = formData.get("weight") as string;
 
   try {
     const stripeProduct = await stripe.products.create({
       name,
-      description,
       images: [image],
     });
     console.log({ stripeProduct });
@@ -43,18 +46,22 @@ export async function createProductFunction(formData: FormData) {
     .from("products")
     .insert({
       name,
+      name_ka,
       price,
       image,
       user_id,
-      color,
+      color_en,
+      color_ka,
       height,
       total_height,
       seat_height,
       width,
       weight,
-      wood_type,
+      wood_type_en,
+      wood_type_ka,
       category,
-      description,
+      description_en,
+      description_ka,
       stripe_product_id: stripeProduct.id,
       stripe_price_id: stripePrice.id,
     })

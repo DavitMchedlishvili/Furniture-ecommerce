@@ -9,8 +9,6 @@ interface SelectCategoryProps {
   setHeight: React.Dispatch<React.SetStateAction<string>>;
   weight: string;
   setWeight: React.Dispatch<React.SetStateAction<string>>;
-  woodType: string;
-  setWoodType: React.Dispatch<React.SetStateAction<string>>;
   // Fields for chair
   width: string;
   setWidth: React.Dispatch<React.SetStateAction<string>>;
@@ -28,8 +26,6 @@ const SelectCategory: React.FC<SelectCategoryProps> = ({
   setHeight,
   weight,
   setWeight,
-  woodType,
-  setWoodType,
   // Chair Fields
   width,
   setWidth,
@@ -129,26 +125,7 @@ const SelectCategory: React.FC<SelectCategoryProps> = ({
             />
           </div>
 
-          <div className="flex flex-col">
-            <label
-              htmlFor="woodType"
-              className="font-bold text-gray-700 dark:text-black"
-            >
-              Wood Type
-            </label>
-            <Input
-              data-cy="product-wood-type-input"
-              type="text"
-              id="woodType"
-              name="woodType"
-              value={woodType}
-              onChange={(e) => setWoodType(e.target.value)}
-              className="w-full p-3 rounded border border-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-500 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-600 transition duration-300"
-              placeholder="Enter the wood type"
-              required
-              min="0"
-            />
-          </div>
+         
         </>
       )}
 
@@ -236,26 +213,8 @@ const SelectCategory: React.FC<SelectCategoryProps> = ({
               min="0"
             />
           </div>
-          <div className="flex flex-col">
-            <label
-              htmlFor="woodType"
-              className="font-bold text-gray-700 dark:text-black"
-            >
-              Wood Type
-            </label>
-            <Input
-              data-cy="product-wood-type-input"
-              type="text"
-              id="woodType"
-              name="woodType"
-              value={woodType}
-              onChange={(e) => setWoodType(e.target.value)}
-              className="w-full p-3 rounded border border-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-500 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-600 transition duration-300"
-              placeholder="Enter the wood type"
-              required
-              min="0"
-            />
-          </div>
+         
+          
         </>
       )}
       {value === "Accessories" && (
@@ -322,26 +281,7 @@ const SelectCategory: React.FC<SelectCategoryProps> = ({
               min="0"
             />
           </div>
-          <div className="flex flex-col">
-            <label
-              htmlFor="woodType"
-              className="font-bold text-gray-700 dark:text-black"
-            >
-              Wood Type
-            </label>
-            <Input
-              data-cy="product-wood-type-input"
-              type="text"
-              id="woodType"
-              name="woodType"
-              value={woodType}
-              onChange={(e) => setWoodType(e.target.value)}
-              className="w-full p-3 rounded border border-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-500 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-600 transition duration-300"
-              placeholder="Enter the wood type"
-              required
-              min="0"
-            />
-          </div>
+         
         </>
       )}
     </div>
