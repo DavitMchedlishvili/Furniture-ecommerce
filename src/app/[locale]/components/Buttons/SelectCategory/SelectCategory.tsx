@@ -67,6 +67,26 @@ const SelectCategory: React.FC<SelectCategoryProps> = ({
       {/* Table-specific fields */}
       {value === "Tables" && (
         <>
+        <div className="flex flex-col">
+            <label
+              htmlFor="width"
+              className="font-bold text-gray-700 dark:text-black"
+            >
+              Width (cm)
+            </label>
+            <Input
+              data-cy="product-width-input"
+              type="number"
+              id="width"
+              name="width"
+              value={width}
+              onChange={(e) => setWidth(e.target.value)}
+              className="w-full p-3 rounded border border-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-500 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-600 transition duration-300"
+              placeholder="Enter the chair width"
+              required
+              min="0"
+            />
+          </div>
           <div className="flex flex-col">
             <label
               htmlFor="height"
