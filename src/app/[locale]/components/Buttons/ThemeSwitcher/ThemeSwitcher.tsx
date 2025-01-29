@@ -35,19 +35,19 @@ const ThemeSwitcher = () => {
           <div className="absolute right-0 mt-2 bg-white shadow-lg z-10 border-2 border-black">
           <button
             onClick={() => handleThemeChange("system")}
-            className="w-full text-left px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:bg-slate-700 dark:hover:bg-slate-500"
+            className="w-full text-left px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:bg-slate-800 dark:hover:bg-slate-500"
           >
             🖥️ 
           </button>
           <button
             onClick={() => handleThemeChange("light")}
-            className="w-full text-left px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:bg-slate-700 dark:hover:bg-slate-500"
+            className="w-full text-left px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:bg-slate-800 dark:hover:bg-slate-500"
           >
             ☀️ 
           </button>
           <button
             onClick={() => handleThemeChange("dark")}
-            className="w-full text-left px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:bg-slate-700 dark:hover:bg-slate-500"
+            className="w-full text-left px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:bg-slate-800 dark:hover:bg-slate-500"
           >
             🌙 
           </button>

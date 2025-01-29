@@ -92,7 +92,25 @@ const CreateProductForm = () => {
           </div>
           <div className="flex flex-col">
             <label
-              htmlFor="Color"
+              htmlFor="name_ka"
+              className="font-bold text-gray-700 dark:text-black"
+            >
+              სახელი (Name in georgian)
+              
+            </label>
+            <Input
+              data-cy="product-name-input"
+              type="text"
+              id="name_ka"
+              name="name_ka"
+              className="w-full p-3 rounded border border-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-600 transition duration-300"
+              placeholder="დაწერეთ პროდუქტის სახელი"
+              required
+            />
+          </div>
+          <div className="flex flex-col">
+            <label
+              htmlFor="color_en"
               className="font-bold text-gray-700 dark:text-black"
             >
               Color
@@ -100,10 +118,27 @@ const CreateProductForm = () => {
             <Input
               data-cy="product-name-input"
               type="text"
-              id="color"
-              name="color"
+              id="color_en"
+              name="color_en"
               className="w-full p-3 rounded border border-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-600 transition duration-300"
               placeholder="Enter the product color"
+              required
+            />
+          </div>
+          <div className="flex flex-col">
+            <label
+              htmlFor="color_en"
+              className="font-bold text-gray-700 dark:text-black"
+            >
+              ფერი (Color in georgian)
+            </label>
+            <Input
+              data-cy="product-name-input"
+              type="text"
+              id="color_en"
+              name="color_en"
+              className="w-full p-3 rounded border border-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-600 transition duration-300"
+              placeholder="დაწერეთ პროდუქტის ფერი"
               required
             />
           </div>
@@ -135,8 +170,6 @@ const CreateProductForm = () => {
             setHeight={setHeight}
             weight={weight}
             setWeight={setWeight}
-            woodType={woodType}
-            setWoodType={setWoodType}
             // Chair Fields
             width={width}
             setWidth={setWidth}
@@ -145,6 +178,43 @@ const CreateProductForm = () => {
             totalHeight={totalHeight}
             setTotalHeight={setTotalHeight}
           />
+           
+           <div className="flex flex-col">
+            <label
+              htmlFor="woodType_en"
+              className="font-bold text-gray-700 dark:text-black"
+            >
+              Wood Type
+            </label>
+            <Input
+              data-cy="product-wood-type-input"
+              type="text"
+              id="woodType_en"
+              name="woodType_en"
+              className="w-full p-3 rounded border border-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-500 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-600 transition duration-300"
+              placeholder="Enter the wood type"
+              required
+              min="0"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label
+              htmlFor="woodType_ka"
+              className="font-bold text-gray-700 dark:text-black"
+            >
+              ხის ტიპი (Wood type in georgian)
+            </label>
+            <Input
+              data-cy="product-wood-type-input"
+              type="text"
+              id="woodType_ka"
+              name="woodType_ka"
+              className="w-full p-3 rounded border border-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-500 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-600 transition duration-300"
+              placeholder="დაწერეთ ხის ტიპი"
+              required
+              min="0"
+            />
+          </div>
 
           {/* Image URL Field */}
           <div className="flex flex-col space-y-2">
@@ -166,17 +236,34 @@ const CreateProductForm = () => {
           </div>
           <div className="flex flex-col  space-y-2">
             <label
-              htmlFor="description"
+              htmlFor="description_en"
               className="font-bold text-gray-700 dark:text-black my-4 "
             >
               Description
             </label>
             <textarea
               data-cy="product-description-input"
-              id="description"
-              name="description"
+              id="description_en"
+              name="description_en"
               className="w-full p-3  border border-gray-400 dark:border-gray-600 dark:bg-slate-600 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-black transition duration-300"
               placeholder="Enter product description"
+              required
+            ></textarea>
+          </div>
+
+          <div className="flex flex-col  space-y-2">
+            <label
+              htmlFor="description_ka"
+              className="font-bold text-gray-700 dark:text-black my-4 "
+            >
+              აღწერა (Description in georgian)
+            </label>
+            <textarea
+              data-cy="product-description-input"
+              id="description_ka"
+              name="description_ka"
+              className="w-full p-3  border border-gray-400 dark:border-gray-600 dark:bg-slate-600 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-black transition duration-300"
+              placeholder="დაწერეთ პროდუქტის აღწერა"
               required
             ></textarea>
           </div>

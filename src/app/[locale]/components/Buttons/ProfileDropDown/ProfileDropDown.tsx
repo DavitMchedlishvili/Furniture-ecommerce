@@ -54,7 +54,7 @@ const ProfileDropDown = () => {
           <>
             <Link
               href="/profile"
-              className="px-2 py-1 text-sm text-black hover:bg-gray-100 block dark:bg-slate-700 dark:hover:bg-slate-500"
+              className="px-2 py-1 text-sm text-black hover:bg-gray-100 block dark:bg-slate-800 dark:hover:bg-slate-500"
             >
               Profile
             </Link>
@@ -65,13 +65,13 @@ const ProfileDropDown = () => {
           <>
             <Link
               href="/login"
-              className="px-2 py-1 text-sm text-black hover:bg-gray-100 block dark:bg-slate-700 dark:hover:bg-slate-500"
+              className="px-2 py-1 text-sm text-black hover:bg-gray-100 block dark:bg-slate-800 dark:hover:bg-slate-500"
             >
               Log In
             </Link>
             <Link
               href="/signup"
-              className="px-2 py-1 text-sm text-black hover:bg-gray-100 block dark:bg-slate-700 dark:hover:bg-slate-500"
+              className="px-2 py-1 text-sm text-black hover:bg-gray-100 block dark:bg-slate-800 dark:hover:bg-slate-500"
             >
               Sign Up
             </Link>
