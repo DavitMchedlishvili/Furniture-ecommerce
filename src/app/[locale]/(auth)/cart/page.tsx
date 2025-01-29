@@ -12,7 +12,6 @@ const CartPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        console.log(cartItems)
         const data = await fetchCart();
         if (data && "cartItem" in data && Array.isArray(data.cartItem)) {
           setCartItems(data.cartItem);
@@ -25,7 +24,7 @@ const CartPage = () => {
     };
 
     fetchProducts();
-  }, []);
+  }, []); // No need to include cartItems in the dependency array
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-800 dark:text-white">
@@ -48,16 +47,16 @@ const CartPage = () => {
             ))}
           </div>
         )}
-            <CheckoutFormCart
-              uiMode="hosted"
-              locale={locale}
-              cartItems={cartItems}
-            />
+        <CheckoutFormCart
+          uiMode="hosted"
+          locale={locale}
+          cartItems={cartItems}
+        />
       </div>
-      <div className="mt-8 flex justify-end">
-          </div>
+      <div className="mt-8 flex justify-end"></div>
     </div>
   );
 };
 
 export default CartPage;
+
