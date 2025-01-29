@@ -17,10 +17,9 @@ const ProductsCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div className="w-full sm:w-[30%] md:w-[22%] lg:w-[22%] mt-4  p-4  transition-all  hover:shadow-lg hover:border-gray-400">
-      {/* Image */}
-      <div className="w-full h-[500px] bg-gray-100  mb-4 flex justify-center items-center">
-        <span className="text-white text-center">IMAGE DIV</span>
+    <div className="w-full sm:w-[30%] md:w-[22%] lg:w-[22%] m-4 bg-white  p-4 transition-all hover:shadow-2xl hover:border-gray-400 dark:hover:border-gray-950">
+      <div className="w-full h-[500px] bg-white  mb-4 flex justify-center items-center">
+       <img src={product.image} alt="image" />
       </div>
 
       <span
