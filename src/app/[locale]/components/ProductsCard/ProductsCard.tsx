@@ -6,14 +6,20 @@ import { useLocale } from "next-intl";
 
 interface ProductCardProps {
   product: ProductProps;
+  addToCart: (product: ProductProps) => Promise<string>;
 }
 
-const ProductsCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductsCard: React.FC<ProductCardProps> = ({ product, addToCart }) => {
   const router = useRouter();
   const locale = useLocale();
 
   const handleViewProduct = () => {
     router.push(`/${locale}/products/${product.id}`);
+  };
+
+  const handleAddToCart = async () => {
+    const message = await addToCart(product);
+    console.log(message)
   };
 
   return (
@@ -29,6 +35,9 @@ const ProductsCard: React.FC<ProductCardProps> = ({ product }) => {
       >
         View Product
       </span>
+      <button className="ml-5" onClick={handleAddToCart}>
+        Add To Cart
+      </button>
     </div>
   );
 };
