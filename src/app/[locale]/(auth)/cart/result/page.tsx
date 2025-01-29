@@ -1,7 +1,6 @@
 import type { Stripe } from "stripe";
 import { createClient } from "@/utils/supabase/server";
 import { stripe } from "@/lib/stripe/stripe";
-import type { JSX } from "react";
 import { Link } from "@/i18n/routing";
 export default async function ResultPage(props: {
   searchParams: Promise<{ session_id: string }>;
