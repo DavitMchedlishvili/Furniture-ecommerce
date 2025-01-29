@@ -14,12 +14,13 @@
     "Login": {
       "Login": "Login",
       "Email": "Email",
-      "placeholder": "Enter your Email",
+      "placeholderEmail": "Enter your Email",
       "placeholderPass": "Enter your password",
       "Password": "Password",
       "Login With GitHub": "Login with GitHub",
       "Go back to Login": "Go back to Login",
-      "Reset Password": "Reset Password",
+      "headerPassword": "Reset Password",
+      "submitResPass": "Reset Password",
       "Please check your email to reset your password!": "Please check your email to reset your password!",
       "Don't have an account?": "Don't have an account?",
       "Register": "Register"

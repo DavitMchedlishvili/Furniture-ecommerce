@@ -130,13 +130,13 @@ const Login = () => {
         {resetPassword && (
           <div className="flex flex-col gap-4">
             <h2 className="text-2xl font-bold text-center text-gray-700 mb-3 dark:text-black">
-            {t("Resset Password")}
+            {t("headerPassword")}
             </h2>
             <div>
               <Input
                 type="email"
                 name="email"
-                placeholder="Enter your Email"
+                placeholder={t("placeholderEmail")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -153,7 +153,7 @@ const Login = () => {
                 {errorMessage}
               </div>
             )}
-            <SubmitButton text="Reset Password" disabled={isLoading} /> {/* Disable SubmitButton during loading */}
+            <SubmitButton text={t("submitResPass")} disabled={isLoading} /> {/* Disable SubmitButton during loading */}
           </div>
         )}
 
@@ -161,7 +161,7 @@ const Login = () => {
           onClick={() => setResetPassword(!resetPassword)}
           className="cursor-pointer hover:underline text-sm mt-4 text-gray-600 dark:text-gray-400 text-center"
         >
-          {resetPassword ? "Go back to Login" : "Reset password"}
+          {resetPassword ? t("Go back to Login") : t("Reset password")}
         </p>
       </form>
       <p className="text-sm mt-2 text-gray-600 dark:text-gray-400 text-center">

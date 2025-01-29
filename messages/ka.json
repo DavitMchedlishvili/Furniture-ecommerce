@@ -20,7 +20,8 @@
       "Password": "პაროლი",
       "Login With GitHub": "შედი გიტჰაბით",
       "Go back to Login": "დაბრუნდი შესვლაზე",
-      "Resset Password": "შეცვალე პაროლი",
+      "headerPassword": "შეცვალე პაროლი",
+      "submitResPass": "შეცვალე პაროლი",
       "Please check your email to reset your password!": "გთხოვ შეამოწმე მეილი რომ შეძლო პაროლის შეცვლა!",
       "Don't have an account?": "არ გაქვს აქაუნთი?",
       "Register": "დარეგისტრირდი"
