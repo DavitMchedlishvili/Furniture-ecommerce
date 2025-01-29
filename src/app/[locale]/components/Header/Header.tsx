@@ -34,25 +34,25 @@ export const Header = () => {
             className="border-b-2 border-transparent hover:border-black transition-all duration-300"
             href={"#"}
           >
-            Exhibition
+            {t('Exhibition')}
           </Link>
           <Link
             className="border-b-2 border-transparent hover:border-black transition-all duration-300"
             href={"#"}
           >
-            Blog
+            {t('Blog')}
           </Link>
           <Link
             className="border-b-2 border-transparent hover:border-black transition-all duration-300"
             href={"#"}
           >
-            About Us
+            {t('About Us')}
           </Link>
           <Link
             className="border-b-2 border-transparent hover:border-black transition-all duration-300"
             href={"#"}
           >
-            Contact
+            {t('Contact')}
           </Link>
         </nav>
         <div className="flex gap-3 justify-center items-center">

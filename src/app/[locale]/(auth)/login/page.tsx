@@ -5,19 +5,20 @@ import Input from "@/app/[locale]/components/Inputs/input";
 import { handleAuthSubmit } from "@/utils/auth/authentication";
 import { Link } from "@/i18n/routing";
 import { supabase } from "@/utils/supabase/supabase";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { FaGithub } from "react-icons/fa"; // Add GitHub icon
-import { FaSpinner } from "react-icons/fa"; // Loading spinner icon
 import LoadingSpinner from "../../loading";
 
 const Login = () => {
   const locale = useLocale();
+  const t = useTranslations("Login");
 
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [resetPassword, setResetPassword] = useState<boolean>(false);
   const [success, setSuccess] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false); // Loading state
+  
 
   const handleGithubLogin = async () => {
     setIsLoading(true); // Set loading to true before starting async task
@@ -77,14 +78,14 @@ const Login = () => {
         {!resetPassword && (
           <div>
             <h2 className="text-2xl font-bold text-center text-gray-700 mb-6 dark:text-black">
-              Login
+              {t("Login")}
             </h2>
             <div className="mb-4">
-              <label className="font-bold">Email</label>
+              <label className="font-bold">{t("Email")}</label>
               <Input
                 type="email"
                 name="email"
-                placeholder="Enter your email"
+                placeholder="Enter your Email" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -92,7 +93,7 @@ const Login = () => {
               />
             </div>
             <div className="mb-4">
-            <label className="font-bold">Password</label>
+            <label className="font-bold">{t("Password")}</label>
               <Input
                 type="password"
                 name="password"
@@ -117,25 +118,25 @@ const Login = () => {
               ) : (
                 <>
                   <FaGithub className="mr-2" size={20} />
-                  Login with GitHub
+                  {t("Login With GitHub")}
                 </>
               )}
             </button>
 
-            <SubmitButton text="Login" disabled={isLoading} /> {/* Disable SubmitButton during loading */}
+            <SubmitButton text={t("Login")} disabled={isLoading} /> {/* Disable SubmitButton during loading */}
           </div>
         )}
 
         {resetPassword && (
           <div className="flex flex-col gap-4">
             <h2 className="text-2xl font-bold text-center text-gray-700 mb-3 dark:text-black">
-              Reset Password
+            {t("Resset Password")}
             </h2>
             <div>
               <Input
                 type="email"
                 name="email"
-                placeholder="Enter your email"
+                placeholder="Enter your Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -143,7 +144,8 @@ const Login = () => {
             </div>
             {success && (
               <div className="text-sm p-2 border-1 border-green-800 bg-green-200">
-                Please check your email to reset your password!
+                {t("Please check your email to reset your password!")}
+                
               </div>
             )}
             {errorMessage && (
@@ -151,7 +153,7 @@ const Login = () => {
                 {errorMessage}
               </div>
             )}
-            <SubmitButton text="Reset My Password" disabled={isLoading} /> {/* Disable SubmitButton during loading */}
+            <SubmitButton text="Reset Password" disabled={isLoading} /> {/* Disable SubmitButton during loading */}
           </div>
         )}
 
@@ -159,16 +161,18 @@ const Login = () => {
           onClick={() => setResetPassword(!resetPassword)}
           className="cursor-pointer hover:underline text-sm mt-4 text-gray-600 dark:text-gray-400 text-center"
         >
-          {resetPassword ? "Go back to Login" : "Reset my password"}
+          {resetPassword ? "Go back to Login" : "Reset password"}
         </p>
       </form>
       <p className="text-sm mt-2 text-gray-600 dark:text-gray-400 text-center">
-        Don&apos;t have an account?{" "}
+      {t("Don't have an account?")}
+        
         <Link
           href={`/signup`}
           className="text-blue-500 dark:text-blue-400 hover:underline"
         >
-          Register
+          {t("Register")}
+          
         </Link>
       </p>
     </div>

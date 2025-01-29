@@ -1,6 +1,27 @@
 {
     "Header": {
       "Products": "Products",
-      "about": "Go to the about page"
+      "Exhibition": "Exhibition",
+      "Blog": "Blog",
+      "About Us": "About Us",
+      "Contact": "Contact"
+    },
+
+    "Hero":{
+      "Learn More": "Learn More"
+    },
+    
+    "Login": {
+      "Login": "Login",
+      "Email": "Email",
+      "placeholder": "Enter your Email",
+      "placeholderPass": "Enter your password",
+      "Password": "Password",
+      "Login With GitHub": "Login with GitHub",
+      "Go back to Login": "Go back to Login",
+      "Reset Password": "Reset Password",
+      "Please check your email to reset your password!": "Please check your email to reset your password!",
+      "Don't have an account?": "Don't have an account?",
+      "Register": "Register"
     }
   }
