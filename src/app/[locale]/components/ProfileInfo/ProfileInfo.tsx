@@ -35,8 +35,7 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
         .update({
           name: userProfile.name,
           lastname: userProfile.lastname,
-          avatar_url: userProfile.avatar_url,
-          date_of_birth: userProfile.date_of_birth,
+          date_of_birth: userProfile.date_of_birth ,
         }) // Use the current userProfile state
         .eq("user_id", profile.user_id); // Assuming 'profile.id' is the user_id of the current profile
 
@@ -81,15 +80,6 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
           <Input
             name="lastname"
             value={userProfile.lastname}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="mb-4">
-          <label className="font-bold">Avatar URL</label>
-          <Input
-            type="text"
-            name="avatar_url"
-            value={userProfile.avatar_url}
             onChange={handleInputChange}
           />
         </div>
