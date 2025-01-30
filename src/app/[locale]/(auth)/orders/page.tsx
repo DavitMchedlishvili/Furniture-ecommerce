@@ -26,11 +26,7 @@ export default async function OrdersPage() {
               key={order.id}
               className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg shadow-sm bg-gray-50"
             >
-              <img
-                src={order.image}
-                alt={order.name}
-                className="w-20 h-20 object-cover rounded-lg"
-              />
+            
               <div className="flex-1">
                 <h2 className="text-lg font-semibold text-gray-900">
                   {order.name}
