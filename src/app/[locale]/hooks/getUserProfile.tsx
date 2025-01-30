@@ -22,7 +22,7 @@ export async function getUserProfile(): Promise<ProfileProps | null> {
 
   // Handle error if profile fetch fails
   if (profileError) {
-    console.error('Error fetching profile:', profileError);
+    console.log('Error fetching profile:', profileError);
     return null;
   }
 
