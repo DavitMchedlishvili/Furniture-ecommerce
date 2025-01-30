@@ -63,7 +63,7 @@ export default function CheckoutFormCart({
   return (
     <div className="flex justify-center">
       <button
-        className={`px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition ${
+        className={`w-[40%] mt-2 py-2 text-black bg-transparent border-2 border-black hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-500 ${
           loading ? "opacity-50 cursor-not-allowed" : ""
         }`}
         onClick={formAction}
@@ -72,7 +72,7 @@ export default function CheckoutFormCart({
       >
         {loading ? (
           <span className="flex items-center justify-center">
-            <div className="w-6 h-6 border-4 border-t-4 border-green-300 border-solid rounded-full animate-spin"></div>
+            <div className="w-6 h-6 border-4 border-t-4 border-black border-solid rounded-full animate-spin"></div>
             <span className="ml-3">Processing...</span>
           </span>
         ) : (

@@ -16,7 +16,7 @@ const SignUp = () => {
   }
 
   return (
-    <div  className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-800">
+    <div  className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700">
       <form
         onSubmit={(e) => handleAuthSubmit(e, "signup", setErrorMessage)}
         className="login-form w-full max-w-sm p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800"
