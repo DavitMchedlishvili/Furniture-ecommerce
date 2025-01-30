@@ -1,6 +1,35 @@
 {
     "Header": {
       "Products": "პროდუქტები",
-      "about": "ჩვენს შესახებ"
+      "Exhibition": "გამოფენა",
+      "Blog": "ბლოგი",
+      "About Us": "ჩვენს შესახებ",
+      "Contact": "კონტაქტი"
+    },
+
+    "Hero":{
+      "Learn More": "გაიგე მეტი"
+    },
+
+    
+    "Login": {
+      "Login": "შესვლა",
+      "Email": "მეილი",
+      "placeholderEmail": "შეიყვანე მეილი",
+      "placeholderPass": "შეიყვანე პაროლი",
+      "Password": "პაროლი",
+      "Login With GitHub": "შედი გიტჰაბით",
+      "Go back to Login": "დაბრუნდი შესვლაზე",
+      "headerPassword": "შეცვალე პაროლი",
+      "submitResPass": "შეცვალე პაროლი",
+      "Please check your email to reset your password!": "გთხოვ შეამოწმე მეილი რომ შეძლო პაროლის შეცვლა!",
+      "Don't have an account?": "არ გაქვს აქაუნთი?",
+      "Register": "დარეგისტრირდი"
     }
+
+
   }
+
+
+
+ 

@@ -1,9 +1,11 @@
 "use client";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
 const Hero: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null); // Reference to the video element
   const [speed, setSpeed] = useState<number>(1); // State to track playback speed
+  const t = useTranslations('Hero');
 
   const changeSpeed = (newSpeed: number) => {
     if (videoRef.current) {
@@ -32,7 +34,7 @@ const Hero: React.FC = () => {
 
       <div className="absolute inset-0 flex top-[65%] items-center justify-center">
         <button className="text-black border-2 border-black py-3 px-5 hover:text-lg hover:bg-white dark:hover:bg-slate-700 hover:py-3.5  hover:px-5.5 transition-all duration-500">
-          Learn More
+        {t('Learn More')}
         </button>
       </div>
     </div>
