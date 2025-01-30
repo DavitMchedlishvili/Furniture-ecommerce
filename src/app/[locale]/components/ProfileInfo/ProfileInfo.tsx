@@ -62,7 +62,7 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-800">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700">
       <div className="w-full max-w-lg p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
         <h2 className="text-2xl font-bold text-center dark:text-black text-gray-700 mb-6">
           Edit Your Profile

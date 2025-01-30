@@ -62,7 +62,7 @@ const Login = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-800">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700">
       <form
         onSubmit={(e) => {
           e.preventDefault();

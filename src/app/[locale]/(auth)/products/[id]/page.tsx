@@ -35,7 +35,7 @@ export default async function ProductPage({   params,
   const woodType = locale === "en" ? data.wood_type_en : data.wood_type_ka;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-800">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700">
       <div className="flex w-[80%] p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
         <div className="image w-[50%] bg-white items-center flex justify-center">
           <img src={data.image} alt={data.name} className="max-w-lg w-full" />
