@@ -28,6 +28,7 @@ const ProductsCard: React.FC<ProductCardProps> = ({ product, addToCart }) => {
       {/* Image */}
       <div className="w-full h-[500px] bg-gray-100 mb-4 flex justify-center items-center">
         <span className="text-white text-center">IMAGE DIV</span>
+
       </div>
       <div className="flex justify-between">
         <span
