@@ -1,6 +1,7 @@
 {
     "Header": {
       "Products": "Products",
+
       "Exhibition": "Exhibition",
       "Blog": "Blog",
       "About Us": "About Us",
@@ -24,5 +25,6 @@
       "Please check your email to reset your password!": "Please check your email to reset your password!",
       "Don't have an account?": "Don't have an account?",
       "Register": "Register"
+
     }
   }

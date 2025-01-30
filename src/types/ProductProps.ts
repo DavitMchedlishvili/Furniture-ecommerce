@@ -1,5 +1,6 @@
 export interface ProductProps {
   name?: string; // Product name (optional)
+  name_ka?:string,
   price?: number; // Price of the product (optional)
   image?: string; // URL to product image (optional)
   user_id?: string; // ID of the user who created the product (optional)
