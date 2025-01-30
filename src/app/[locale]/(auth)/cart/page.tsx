@@ -27,33 +27,50 @@ const CartPage = () => {
   }, []); // No need to include cartItems in the dependency array
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-800 dark:text-white">
-      <div className="flex flex-col w-[80%] p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
-        <h1 className="text-3xl font-bold mb-8 text-gray-800">Cart</h1>
+    <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-slate-900 dark:text-white">
+      <div className="flex flex-col w-full max-w-4xl p-8 bg-white border border-gray-300 rounded-lg shadow-lg dark:bg-slate-800 dark:border-slate-700">
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-8 dark:text-white">
+          Your Cart
+        </h1>
 
         {cartItems.length === 0 ? (
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-center text-gray-600 dark:text-gray-400">
             Your cart is empty. Add some products to it!
           </p>
         ) : (
-          <div className="bg-white m-5 flex flex-col gap-3 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {cartItems.map((item) => (
-              <ul className="flex flex-col justify-center  bg-white border-2 border-black" key={item.id}>
-                {" "}
-                {/* key applied to <ul> */}
-                <li className="text-3xl font-bold">{item.name}</li>
-                <li className="mt-4 text-xl">Price: ${item.price}</li>
-              </ul>
+              <div
+                className="flex flex-col bg-white border border-black  shadow-md dark:bg-slate-700 dark:border-slate-600"
+                key={item.id}
+              >
+                <div className="w-full h-64 bg-gray-100 dark:bg-slate-600 mb-4 flex justify-center items-center rounded-t-lg">
+                  <span className="text-gray-400 text-lg">Image Placeholder</span>
+                </div>
+                <div className="px-4 py-3">
+                  <h2 className="text-2xl font-semibold text-gray-800 dark:text-white">
+                    {item.name}
+                  </h2>
+                  <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">
+                    Price: ${item.price}
+                  </p>
+                  <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">
+                    Quantity: {item.quantity}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         )}
-        <CheckoutFormCart
-          uiMode="hosted"
-          locale={locale}
-          cartItems={cartItems}
-        />
+
+        <div className="mt-6">
+          <CheckoutFormCart
+            uiMode="hosted"
+            locale={locale}
+            cartItems={cartItems}
+          />
+        </div>
       </div>
-      <div className="mt-8 flex justify-end"></div>
     </div>
   );
 };

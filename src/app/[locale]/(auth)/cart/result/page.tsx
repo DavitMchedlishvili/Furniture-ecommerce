@@ -2,6 +2,8 @@ import type { Stripe } from "stripe";
 import { createClient } from "@/utils/supabase/server";
 import { stripe } from "@/lib/stripe/stripe";
 import { Link } from "@/i18n/routing";
+import Image from "next/image";
+import packageImage from "../../../../../../public/assets/package.png"
 export default async function ResultPage(props: {
   searchParams: Promise<{ session_id: string }>;
 }): Promise<JSX.Element> {
@@ -45,11 +47,27 @@ export default async function ResultPage(props: {
 
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-800 dark:text-white">
-    <h1>Thank you for your purchase!</h1>
-    <p>Your order is confirmed. </p>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700 dark:text-white p-6 space-y-8">
+  <p className="text-2xl font-semibold text-center text-gray-800 dark:text-gray-200">
+    Thanks for your order!
+  </p>
+
+  <Image
+    src={packageImage}
+    alt="orderBox"
+    width={300}
+    height={300}
+    priority
     
-    <Link href="/">Go to home</Link>
-    </div>
+  />
+
+  <Link
+    href={"/"}
+    className="hover:underline"
+  >
+    Go back to home
+  </Link>
+</div>
+
   );
 }
