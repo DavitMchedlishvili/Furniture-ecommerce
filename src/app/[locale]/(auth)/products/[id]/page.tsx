@@ -1,9 +1,12 @@
+import DeleteButton from "@/app/[locale]/components/Buttons/DeleteButton";
+import { Link } from "@/i18n/routing";
 import { ProductPageProps } from "@/types/ProductPageProps";
 import { createClient } from "@/utils/supabase/server";
+
 import { notFound } from "next/navigation";
 
 interface Params {
-  id: string;
+  id: number;
   locale: string
 }
 
@@ -33,6 +36,11 @@ export default async function ProductPage({   params,
   const name = locale === "en" ? data.name : data.name_ka;
   const color = locale === "en" ? data.color_en : data.color_ka;
   const woodType = locale === "en" ? data.wood_type_en : data.wood_type_ka;
+  
+
+
+
+
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700">
@@ -48,7 +56,9 @@ export default async function ProductPage({   params,
             <li className="mt-2">{description}</li>
             <li className="mt-4 text-xl">Price: ${data.price}</li>
           </ul>
+          <DeleteButton text={"product"} productId={data.id}/>
         </div>
+        
       </div>
     </div>
   );
