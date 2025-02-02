@@ -2,6 +2,7 @@ import DeleteButton from "@/app/[locale]/components/Buttons/DeleteButton";
 import { Link } from "@/i18n/routing";
 import { ProductPageProps } from "@/types/ProductPageProps";
 import { createClient } from "@/utils/supabase/server";
+import Image from "next/image";
 
 import { notFound } from "next/navigation";
 
@@ -46,7 +47,12 @@ export default async function ProductPage({   params,
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700">
       <div className="flex w-[80%] p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
         <div className="image w-[50%] bg-white items-center flex justify-center">
-          {/* <img src={data.image} alt={data.name} className="max-w-lg w-full" /> */}
+           <Image
+                  src={data.image || "/default-image.png"}
+                  alt={data.name || "Product image"}
+                  width={500}
+                  height={500}
+                />
         </div>
         <div className="content w-[50%] p-20 border-l-2 border-black bg-white">
           <ul className="flex flex-col justify-center gap-3">

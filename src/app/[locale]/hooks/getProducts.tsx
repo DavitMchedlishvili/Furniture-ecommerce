@@ -1,15 +1,21 @@
 import { createClient } from '@/utils/supabase/server';
 
-const getProducts = async () => {
+const getProducts = async (category?: string) => {
   const supabase = await createClient();
-  const { data, error } = await supabase
-  .from('products')
-  .select('*')
+  
+  let query = supabase.from('products').select('*');
+
+  // If a category is provided, filter products by category
+  if (category) {
+    query = query.eq('category', category); // Assuming 'category' is the column name in your Supabase table
+  }
+
+  const { data, error } = await query;
 
   // Handle error by returning null
   if (error) {
     console.error("Error fetching products:", error.message);
-    return null; // Return null on error
+    return null;
   }
 
   // If no products are found, return null
@@ -17,8 +23,8 @@ const getProducts = async () => {
     return null; // Return null if no products found
   }
 
-  console.log("data", data)
-  return data
+  console.log("data", data);
+  return data;
 };
 
 export default getProducts;

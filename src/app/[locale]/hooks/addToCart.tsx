@@ -17,6 +17,7 @@ export const addToCart = async (product: ProductProps): Promise<string> => {
     }
     const user_id = user.id;
     console.log(user_id);
+
     const { data: existingCart, error: existingCartError } = await supabase
       .from("cart")
       .select("id")
@@ -24,6 +25,7 @@ export const addToCart = async (product: ProductProps): Promise<string> => {
       .single();
 
     if (existingCartError) {
+      // Insert a new cart if it doesn't exist
       const { data: newCart, error: newCartError } = await supabase
         .from("cart")
         .insert({ user_id })
@@ -33,9 +35,11 @@ export const addToCart = async (product: ProductProps): Promise<string> => {
         throw new Error(newCartError.message);
       }
 
+      // The newCart contains the created cart
       const existingCart = newCart[0];
       console.log(existingCart);
     }
+
     // Check if the product already exists in the cart
     const { data: existingCartItem, error: cartItemError } = await supabase
       .from("cartItem")
@@ -44,12 +48,10 @@ export const addToCart = async (product: ProductProps): Promise<string> => {
       .eq("product_id", product.id)
       .single();
 
-    // Check if the error code is "PGRST116", which indicates that no matching cart item was found.
-    // This is expected behavior when the product is not in the cart yet, so I don't treat it as a failure.
-    // For any other error, I throw an error to handle unexpected issues.
     if (cartItemError && cartItemError.code !== "PGRST116") {
       throw new Error("Error checking cart item: " + cartItemError.message);
     }
+
     // Update the quantity if the product exists
     if (existingCartItem) {
       const { error: updateError } = await supabase
@@ -71,8 +73,8 @@ export const addToCart = async (product: ProductProps): Promise<string> => {
         stripe_product_id: product.stripe_product_id,
         stripe_price_id: product.stripe_price_id,
         image: product.image,
-        price:product.price,
-        name_ka:product.name_ka
+        price: product.price,
+        name_ka: product.name_ka,
       });
 
       if (insertError) {
@@ -82,7 +84,7 @@ export const addToCart = async (product: ProductProps): Promise<string> => {
       }
     }
 
-    return ` Great choice! ${product.name} has been added to your cart. Head to your cart to review and complete your orde`;
+    return `Great choice! ${product.name} has been added to your cart. Head to your cart to review and complete your order.`;
   } catch (err: unknown) {
     if (err instanceof Error) {
       console.error("Error adding product to cart:", err.message);

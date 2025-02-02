@@ -65,7 +65,7 @@ export async function createProductFunction(formData: FormData) {
       stripe_product_id: stripeProduct.id,
       stripe_price_id: stripePrice.id,
     })
-    .single();
+    
 
   if (error) {
     console.error("Error inserting into Supabase:", error);

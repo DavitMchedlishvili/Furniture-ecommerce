@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { ProductProps } from "@/types/ProductProps";
 import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
@@ -26,10 +27,13 @@ const ProductsCard: React.FC<ProductCardProps> = ({ product, addToCart }) => {
     <div className="w-full sm:w-[30%] md:w-[22%] lg:w-[22%] mt-4 p-4 transition-all hover:shadow-[0px_10px_20px_rgba(0,0,0,0.2)] dark:bg-white">
 
       {/* Image */}
-      <div className="w-full h-[500px] bg-gray-100 mb-4 flex justify-center items-center">
-        <span className="text-white text-center">IMAGE DIV</span>
+      <Image
+        src={product.image || "/default-image.png"}
+        alt={product.name || "Product image"}
+        width={500}
+        height={500}
+      />
 
-      </div>
       <div className="flex justify-between">
         <span
           onClick={handleViewProduct}
