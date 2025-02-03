@@ -33,7 +33,11 @@ const SelectCategory: React.FC<SelectCategoryProps> = ({
   setSeatHeight,
   totalHeight,
   setTotalHeight,
-}) => {
+}) =>{
+
+  
+  
+  {
   return (
     <div className="flex flex-col p-2 space-y-6 border-2 border-gray-400 dark:border-gray-600 pt-6">
       {/* Category Selection */}
@@ -287,5 +291,9 @@ const SelectCategory: React.FC<SelectCategoryProps> = ({
     </div>
   );
 };
-
+}
 export default SelectCategory;
+
+
+
+

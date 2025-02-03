@@ -10,7 +10,7 @@ const ProductsPage = async () => {
   const data: ProductProps[] | null | undefined = await getProducts();
   console.log(data)
   if (!data) {
-    return <div>Products not found</div>;
+    return <div className='flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700'>Products not found</div>;
   }
 
   
