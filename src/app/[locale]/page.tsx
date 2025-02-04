@@ -1,4 +1,5 @@
 // import CategoryDivs from "./components/CategoryDivs/CategoryDivs";
+
 import Hero from "./components/Hero/Hero";
 
 export default function Home() {
