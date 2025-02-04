@@ -60,12 +60,13 @@ import type { Stripe } from "stripe";
 import { stripe } from "@/lib/stripe/stripe";
 import { Link } from "@/i18n/routing";
 
+interface ProductResultPageProps {
+  searchParams: { session_id?: string };
+}
 
 export default async function ProductResultPage({
   searchParams,
-}: {
-  searchParams: Record<string, string>;
-}): Promise<JSX.Element | undefined> {
+}: ProductResultPageProps): Promise<JSX.Element> {
   if (!searchParams.session_id) {
     return (
       <div className="flex items-center justify-center h-screen bg-red-100">
@@ -110,7 +111,7 @@ export default async function ProductResultPage({
       currency: "USD",
     }).format(amountInDollars);
   }
-  
+
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100 dark:bg-slate-700">
       <div className="p-8 rounded-lg text-center">
@@ -123,7 +124,7 @@ export default async function ProductResultPage({
         <p className="text-gray-600 mb-8">
           For any questions, please contact our support team.
         </p>
-  
+
         <Link
           href="/"
           className="w-full mt-2 py-2 text-black bg-transparent border-2 border-black hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-500"
@@ -132,4 +133,5 @@ export default async function ProductResultPage({
         </Link>
       </div>
     </div>
-  );}
+  );
+}
