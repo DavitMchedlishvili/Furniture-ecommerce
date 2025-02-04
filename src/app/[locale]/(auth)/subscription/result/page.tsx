@@ -7,7 +7,7 @@ export default async function ProductResultPage(props: {
   searchParams: Promise<{ session_id: string }>;
 }): Promise<JSX.Element> {
   const searchParams = await props.searchParams;
-  const supabase = await createClient();
+ 
   if (!searchParams.session_id) {
     return (
       <div className="flex items-center justify-center h-screen bg-red-100">
@@ -52,54 +52,12 @@ export default async function ProductResultPage(props: {
       }).format(subscription.items.data[0].plan.amount / 100);
     }
 
-    if (checkoutSession.payment_status === "paid" && subscription) {
-      const productId = subscription.items.data[0]?.price.product;
-      const subscriptionStatus = subscription.status;
+    
+    
 
-      if (typeof productId !== "string") {
-        console.error("Invalid product ID:", productId);
-        return (
-          <div className="flex items-center justify-center h-screen bg-red-100">
-            <p className="text-xl text-red-500">
-              Subscription details are missing. Please contact support.
-            </p>
-          </div>
-        );
-      }
+      
 
-      const product = await stripe.products.retrieve(productId);
-      const productName = product.name;
-
-      const { data: user, error: sessionError } = await supabase.auth.getUser();
-      if (sessionError || !user?.user?.id) {
-        console.error("Error fetching user session:", sessionError);
-        return (
-          <div className="flex items-center justify-center h-screen bg-red-100">
-            <p className="text-xl text-red-500">
-              User session not found. Please log in again.
-            </p>
-          </div>
-        );
-      }
-
-      const userId = user.user.id;
-
-      console.log("Subscribed Product ID:", productId);
-      console.log("Subscription Status:", subscriptionStatus);
-
-      const { error } = await supabase
-        .from("profiles")
-        .update({
-          subscription_plan: productId,
-          subscription_name: productName,
-          subscription_status: subscriptionStatus,
-        })
-        .eq("user_id", userId);
-
-      if (error) {
-        console.error("Error updating subscription in the database:", error);
-      }
-    }
+      
 
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-gray-100 dark:bg-slate-700">
