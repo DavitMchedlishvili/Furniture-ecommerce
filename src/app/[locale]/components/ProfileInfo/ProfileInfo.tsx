@@ -5,6 +5,7 @@ import LoadingSpinner from "../../loading";
 import { supabase } from "@/utils/supabase/supabase";
 import { ProfileProps } from "@/types/ProfileProps";
 import SubmitButton from "../Buttons/SubmitButton";
+import Account from "../manageAccount/ManageAcc";
 
 const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
   const [userProfile, setUserProfile] = useState<ProfileProps>(profile);
@@ -97,6 +98,7 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
           disabled={loading}
           onClick={handleSaveProfile}
         />
+        {/* <Account /> */}
       </div>
     </div>
   );

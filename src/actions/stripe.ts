@@ -44,8 +44,8 @@ async function handleSubscriptionPurchase(
     throw new Error("Price ID is required for subscriptions but was not provided.");
   }
 
-  const successUrl = `${origin}/${locale}/pricing/result?session_id={CHECKOUT_SESSION_ID}`;
-  const cancelUrl = `${origin}/${locale}/subscribe/cancel`;
+  const successUrl = `${origin}/${locale}/subscription/result?session_id={CHECKOUT_SESSION_ID}`;
+  const cancelUrl = `${origin}/${locale}/subscription/cancel`;
 
   const checkoutSession = await stripe.checkout.sessions.create({
     mode: "subscription",

@@ -625,7 +625,7 @@ const CreateProductForm = () => {
               data-cy="product-description-input"
               id="description_en"
               name="description_en"
-              className="w-full p-3 border border-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-600"
+              className="w-full p-3 border border-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-black"
               placeholder="Enter the product description"
               value={formData.description_en}
               onChange={handleInputChange}
@@ -641,7 +641,7 @@ const CreateProductForm = () => {
               data-cy="product-description-input"
               id="description_ka"
               name="description_ka"
-              className="w-full p-3 border border-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-purple-600"
+              className="w-full p-3 border border-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-black"
               placeholder="დაწერეთ პროდუქტის აღწერა"
               value={formData.description_ka}
               onChange={handleInputChange}
