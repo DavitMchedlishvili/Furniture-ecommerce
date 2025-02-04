@@ -7,12 +7,11 @@ export const metadata: Metadata = {
   title: "Furniture Subscription",
 };
 
-export default async function IndexPage({
-  params,
-}: {
-  params: { locale?: string };
+export default async function IndexPage(props: {
+  params: Promise<{ locale?: string }>;
 }): Promise<JSX.Element> {
-  const locale = (await params?.locale) || "en";
+  const params = await props.params;
+  const locale = ( params?.locale) || "en";
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700 dark:text-white">
       <div className="w-[70%] mt-[90px] p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800 max-h-[800px] overflow-y-auto scrollbar">
