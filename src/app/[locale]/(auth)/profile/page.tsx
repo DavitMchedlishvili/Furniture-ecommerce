@@ -1,4 +1,5 @@
 import ProfileForm from '../../components/CreateProfileForm/CreateProfileForm';
+import Account from '../../components/manageAccount/ManageAcc';
 import ProfileInfo from '../../components/ProfileInfo/ProfileInfo';
 // New component for creating profile
 import { getUserProfile } from '../../hooks/getUserProfile';
@@ -14,13 +15,19 @@ const ProfilePage = async () => {
         <div className='w-full text-center max-w-lg p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800'>
           <h2 className="text-2xl font-bold mb-4">Create Your Profile</h2>
           <ProfileForm />
+          
         </div>
       </div>
     );
   }
 
-  // Profile exists, render profile info
-  return <ProfileInfo profile={profile} />;
+  
+  return (
+    <div>
+      {profile && <ProfileInfo profile={profile} />}
+      
+    </div>
+  );
 };
 
 export default ProfilePage;

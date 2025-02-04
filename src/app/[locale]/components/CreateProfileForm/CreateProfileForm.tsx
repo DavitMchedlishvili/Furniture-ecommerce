@@ -5,6 +5,7 @@ import Input from "../Inputs/input";
 import SubmitButton from "../Buttons/SubmitButton";
 import { useLocale } from "next-intl";
 import { createProfile } from "@/utils/profiles/createProfilefunction";
+import Account from "../manageAccount/ManageAcc";
 // Function to create the profile
 
 const ProfileForm = () => {
