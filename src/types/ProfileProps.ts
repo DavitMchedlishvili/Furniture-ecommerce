@@ -3,6 +3,6 @@ export interface ProfileProps {
     lastname?: string;
     user_id?: string;
     email?: string;
-    avatar_url?: string;
+    role: string,
     date_of_birth?: string;
   }

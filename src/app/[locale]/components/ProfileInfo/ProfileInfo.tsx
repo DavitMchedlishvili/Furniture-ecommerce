@@ -5,16 +5,34 @@ import LoadingSpinner from "../../loading";
 import { supabase } from "@/utils/supabase/supabase";
 import { ProfileProps } from "@/types/ProfileProps";
 import SubmitButton from "../Buttons/SubmitButton";
-import Account from "../manageAccount/ManageAcc";
+import { Link } from "@/i18n/routing";
 
 const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
   const [userProfile, setUserProfile] = useState<ProfileProps>(profile);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const [isAdmin, setIsAdmin] = useState(false); // To check if the user is an admin
+
   useEffect(() => {
     setUserProfile(profile); // Set initial profile state from the prop
+    checkAdminStatus(); // Check if the user is an admin
   }, [profile]);
+
+  const checkAdminStatus = async () => {
+    // Assuming 'role' is a part of the profile data
+    const { data: profileData, error } = await supabase
+      .from("profiles")
+      .select("role")
+      .eq("user_id", profile.user_id)
+      .single();
+
+    if (error) {
+      console.error("Error fetching role:", error);
+    } else {
+      setIsAdmin(profileData?.role === "admin");
+    }
+  };
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -29,16 +47,14 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
   const handleSaveProfile = async () => {
     try {
       setLoading(true);
-
-      // Ensure we're using the correct profile data (either state or prop)
       const { error: updateError } = await supabase
         .from("profiles")
         .update({
           name: userProfile.name,
           lastname: userProfile.lastname,
-          date_of_birth: userProfile.date_of_birth ,
-        }) // Use the current userProfile state
-        .eq("user_id", profile.user_id); // Assuming 'profile.id' is the user_id of the current profile
+          date_of_birth: userProfile.date_of_birth,
+        })
+        .eq("user_id", profile.user_id);
 
       if (updateError) {
         throw updateError;
@@ -50,11 +66,10 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
     } finally {
       setLoading(false);
     }
-    console.log(profile, profile.user_id); // This logs the profile to check the profile object
   };
 
   if (loading) {
-    return <LoadingSpinner />; // Show loading spinner while fetching data
+    return <LoadingSpinner />;
   }
 
   if (error) {
@@ -97,9 +112,35 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
           text={loading ? "Saving..." : "Update Profile"}
           disabled={loading}
           onClick={handleSaveProfile}
+         
         />
-        {/* <Account /> */}
+
+      
       </div>
+
+      {isAdmin && (
+        <div className="w-full flex flex-col max-w-lg p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
+         
+         <h2 className="text-2xl font-bold text-center dark:text-black text-gray-700 mb-6">
+          Admin Features
+        </h2>
+         
+          <Link href="/create-product"
+            
+            className="text-center w-full mt-2 p-2 text-black bg-transparent border-2 border-black hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-500"
+          >
+            Create Product
+          </Link>
+
+          <Link href="/create-post"
+            
+            className="text-center w-full mt-2 p-2 text-black bg-transparent border-2 border-black hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-500"
+          >
+            Create Post
+          </Link>
+          
+        </div>
+      )}
     </div>
   );
 };
