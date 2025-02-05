@@ -16,17 +16,26 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
 
   // Move checkAdminStatus function outside the useEffect and wrap it in useCallback
   const checkAdminStatus = useCallback(async () => {
-    // Assuming 'role' is a part of the profile data
-    const { data: profileData, error } = await supabase
-      .from("profiles")
-      .select("role")
-      .eq("user_id", profile.user_id)
-      .single();
+    setLoading(true); // Set loading true when the check starts
+    try {
+      // Assuming 'role' is a part of the profile data
+      const { data: profileData, error } = await supabase
+        .from("profiles")
+        .select("role")
+        .eq("user_id", profile.user_id)
+        .single();
 
-    if (error) {
-      console.error("Error fetching role:", error);
-    } else {
-      setIsAdmin(profileData?.role === "admin");
+      if (error) {
+        console.error("Error fetching role:", error);
+        setIsAdmin(false); // Default to false if error occurs
+      } else {
+        setIsAdmin(profileData?.role === "admin");
+      }
+    } catch (error) {
+      console.error("Error checking admin status:", error);
+      setIsAdmin(false); // Default to false in case of failure
+    } finally {
+      setLoading(false); // Set loading false when the check is done
     }
   }, [profile.user_id]); // Add profile.user_id as a dependency
 
@@ -142,6 +151,3 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
 };
 
 export default ProfileInfo;
-
-
-
