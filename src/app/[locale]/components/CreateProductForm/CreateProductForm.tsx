@@ -361,6 +361,14 @@ const CreateProductForm = () => {
       category: selectedCategory,
     }));
 
+
+    if (selectedCategory === "Chairs" || selectedCategory === "Armchairs" || selectedCategory === "Lounge seatings" || selectedCategory === "Barstools")  {
+      setFormData((prevState) => ({
+        ...prevState,
+        height: "0",
+      }));
+    }
+
     // Reset seatHeight and totalHeight to null for "Accessories" category
     if (selectedCategory === "Accessories" || selectedCategory === "Tables") {
       setFormData((prevState) => ({
@@ -369,7 +377,13 @@ const CreateProductForm = () => {
         totalHeight: "0",
       }));
     }
+
+    
+   
   };
+
+  
+
 
   
 
@@ -439,6 +453,7 @@ const CreateProductForm = () => {
       // Call your product creation function
       const response = await createProductFunction(formDataToSubmit);
     
+      console.log(formData)
       if (response.success) {
         console.log("success");
       }
