@@ -1,17 +1,17 @@
-import React from 'react'
-import { getPosts } from '../../hooks/getPosts'
+// import React from 'react'
+// import { getPosts } from '../../hooks/getPosts'
 
-export const PostsPage = async () => {
-
-
-    const postData = await getPosts()
-
-    console.log(postData)
-
-  return (
-    <div>page</div>
-  )
-}
+// export const PostsPage = async () => {
 
 
-export default PostsPage
+//     const postData = await getPosts()
+
+//     console.log(postData)
+
+//   return (
+//     <div>page</div>
+//   )
+// }
+
+
+// export default PostsPage
