@@ -33,7 +33,7 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
   useEffect(() => {
     setUserProfile(profile); // Set initial profile state from the prop
     checkAdminStatus(); // Check if the user is an admin
-  }, [profile]);
+  }, [profile, checkAdminStatus]);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
