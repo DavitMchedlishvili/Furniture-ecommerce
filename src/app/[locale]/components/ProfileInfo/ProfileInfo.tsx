@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Input from "@/app/[locale]/components/Inputs/input";
 import LoadingSpinner from "../../loading";
 import { supabase } from "@/utils/supabase/supabase";
@@ -14,8 +14,8 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
 
   const [isAdmin, setIsAdmin] = useState(false); // To check if the user is an admin
 
-  // Move checkAdminStatus function outside the useEffect
-  const checkAdminStatus = async () => {
+  // Move checkAdminStatus function outside the useEffect and wrap it in useCallback
+  const checkAdminStatus = useCallback(async () => {
     // Assuming 'role' is a part of the profile data
     const { data: profileData, error } = await supabase
       .from("profiles")
@@ -28,12 +28,12 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
     } else {
       setIsAdmin(profileData?.role === "admin");
     }
-  };
+  }, [profile.user_id]); // Add profile.user_id as a dependency
 
   useEffect(() => {
     setUserProfile(profile); // Set initial profile state from the prop
     checkAdminStatus(); // Check if the user is an admin
-  }, [profile, checkAdminStatus]);
+  }, [profile, checkAdminStatus]); // Include checkAdminStatus in the dependency array
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -142,4 +142,6 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
 };
 
 export default ProfileInfo;
+
+
 
