@@ -14,11 +14,7 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
 
   const [isAdmin, setIsAdmin] = useState(false); // To check if the user is an admin
 
-  useEffect(() => {
-    setUserProfile(profile); // Set initial profile state from the prop
-    checkAdminStatus(); // Check if the user is an admin
-  }, [profile]);
-
+  // Move checkAdminStatus function outside the useEffect
   const checkAdminStatus = async () => {
     // Assuming 'role' is a part of the profile data
     const { data: profileData, error } = await supabase
@@ -33,6 +29,11 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
       setIsAdmin(profileData?.role === "admin");
     }
   };
+
+  useEffect(() => {
+    setUserProfile(profile); // Set initial profile state from the prop
+    checkAdminStatus(); // Check if the user is an admin
+  }, [profile]);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -112,33 +113,28 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
           text={loading ? "Saving..." : "Update Profile"}
           disabled={loading}
           onClick={handleSaveProfile}
-         
         />
-
-      
       </div>
 
       {isAdmin && (
         <div className="w-full flex flex-col max-w-lg p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
-         
-         <h2 className="text-2xl font-bold text-center dark:text-black text-gray-700 mb-6">
-          Admin Features
-        </h2>
-         
-          <Link href="/create-product"
-            
+          <h2 className="text-2xl font-bold text-center dark:text-black text-gray-700 mb-6">
+            Admin Features
+          </h2>
+
+          <Link
+            href="/create-product"
             className="text-center w-full mt-2 p-2 text-black bg-transparent border-2 border-black hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-500"
           >
             Create Product
           </Link>
 
-          <Link href="/create-post"
-            
+          <Link
+            href="/create-post"
             className="text-center w-full mt-2 p-2 text-black bg-transparent border-2 border-black hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-500"
           >
             Create Post
           </Link>
-          
         </div>
       )}
     </div>
@@ -146,3 +142,4 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
 };
 
 export default ProfileInfo;
+
