@@ -40,27 +40,29 @@
 
 // export default DeleteButton;
 "use client"  // Ensures this component is treated as client-side
-import { deleteProduct } from "@/utils/products/deleteProduct";
+import { deleteRecord } from "@/utils/deleteRecord/deleteRecord";
 import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
 import React from "react";
 
+
 interface DeleteButtonProps {
   text: string;
-  productId: number;
+  recordId: number;
+  table: string
 }
 
-const DeleteButton: React.FC<DeleteButtonProps> = ({ text, productId }) => {
+const DeleteButton: React.FC<DeleteButtonProps> = ({ text, recordId, table }) => {
   const router = useRouter();
   const locale = useLocale();
 
   const handleDelete = async (event: React.FormEvent) => {
     event.preventDefault(); // Prevent the default form submission behavior
-    const result = await deleteProduct(productId);
+    const result = await deleteRecord(table, recordId);
     if (result.success) {
       // Handle successful deletion, e.g., show a message or refresh the list
       console.log(`${text} deleted successfully`);
-      router.push(`/${locale}/products`); // Redirect to the products page with the current locale
+      router.push(`/${locale}/${table}`); // Redirect to the products page with the current locale
     } else {
       // Handle error if deletion failed
       console.error(`Failed to delete ${text}:`, result.error);
