@@ -1,0 +1,128 @@
+{
+  "Header": {
+    "Products": "პროდუქტები",
+    "Posts": "პოსტები",
+    "Subscriptions": "საბსქრიფშენი",
+    "About": "ჩვენს შესახებ",
+    "Contact us": "კონტაქტი"
+  },
+
+  "Hero": {
+    "Tables": "მაგიდები"
+  },
+
+  "Login": {
+    "Login": "შესვლა",
+    "Email": "ელ.ფოსტა",
+    "Password": "პაროლი",
+    "placeholderEmail": "შეიყვანეთ თქვენი ელ.ფოსტა",
+    "Enter your password": "შეიყვანეთ თქვენი პაროლი",
+    "Login With GitHub": "GitHub-ით შესვლა",
+    "Reset password": "დაგავიწყდათ პაროლი?",
+    "submitResPass": "აღდგენის ლინკის გაგზავნა",
+    "headerPassword": "პაროლის აღდგენა",
+    "Please check your email to reset your password!": "გთხოვთ, შეამოწმოთ ელ.ფოსტა პაროლის აღსადგენად!",
+    "Go back to Login": "უკან შესვლაზე გადასვლა",
+    "Don't have an account?": "არ გაქვთ ანგარიში?",
+    "Register": "რეგისტრაცია",
+    "An unexpected error occurred": "მოხდა გაუთვალისწინებელი შეცდომა. სცადეთ თავიდან."
+  },
+
+  "SignUp": {
+    "Email": "ელ.ფოსტა",
+    "Enter your email": "შეიყვანეთ თქვენი ელ.ფოსტა",
+    "Password": "პაროლი",
+    "Enter your password": "შეიყვანეთ თქვენი პაროლი",
+    "Sign Up": "რეგისტრაცია"
+  },
+
+  "Category": {
+    "Categories": "კატეგორიები",
+    "Chairs": "სკამები",
+    "BarStools": "ბარის სკამები",
+    "ArmChairs": "სავარძლები",
+    "LoungeSeats": "ლაუნჯი",
+    "Accessories": "აქსესუარები",
+    "Tables": "მაგიდები"
+  },
+
+  "Footer": {
+    "ContactUs": "კონტაქტი",
+    "AboutUs": "ჩვენს შესახებ",
+    "Products": "პროდუქტები",
+    "Posts": "პოსტები",
+    "Cart": "კალათა"
+  },
+
+  "Cart": {
+    "YourCart": "შენი კალათა",
+    "EmptyCartMessage": "შენი კალათა ცარიელია. დაამატე პროდუქტები!",
+    "Price": "ფასი",
+    "Quantity": "რაოდენობა"
+  },
+
+  "Contact": {
+    "FullName": "სრული სახელი",
+    "FullNamePlaceholder": "სრული სახელი",
+    "EmailAddress": "ელ.ფოსტა",
+    "EmailPlaceholder": "example@domain.com",
+    "Message": "შეტყობინება",
+    "MessagePlaceholder": "წერილი ტექსტი",
+    "SubmitButton": "გაგზავნა"
+  },
+
+  "CreatePost": {
+    "Title": "სათაური",
+    "TitleGeorgian": "სათაური (ქართულად)",
+    "Body": "ტექსტი",
+    "BodyGeorgian": "ტექსტი (ქართულად)",
+    "PostImage": "ფოტო",
+    "SavePost": "შეინახე"
+  },
+
+  "ProfileForm": {
+    "Name": "სახელი",
+    "Lastname": "გვარი",
+    "DateOfBirth": "დაბადების თარიღი",
+    "SaveProfile": "შეინახე"
+  },
+
+  "profile": {
+    "editProfile": "პროფილის რედაქტირება",
+    "username": "მომხმარებლის სახელი",
+    "lastname": "გვარი",
+    "dateOfBirth": "დაბადების თარიღი",
+    "saving": "შენახვა...",
+    "updateProfile": "პროფილის განახლება",
+    "profileUpdated": "პროფილი წარმატებით განახლდა!",
+    "error": "შეცდომა",
+    "adminFeatures": "ადმინ ფუნქციები",
+    "createProduct": "პროდუქტის შექმნა",
+    "createPost": "პოსტის შექმნა"
+  },
+  "PostCard": {
+    "viewPost": "პოსტის ნახვა"
+  },
+
+  "ProductsCard": {
+    "viewProduct": "პროდუქტის ნახვა",
+    "price": "ფასი",
+    "addToCart": "დაამატე კალათში"
+  },
+
+  "products": {
+
+    "error": "სამწუხაროდ პროდუქტების ჩატვირთვა ვერ მოხერხდა",
+    "noProducts": "ბოდიშით, არ არის პროდუქტები"
+  },
+
+  "profileDropDown": {
+    "profile": "პროფილი",
+    "login": "შესვლა",
+    "signup": "რეგისტრაცია"
+  },
+
+  "logOutBtn": {
+    "logout": "გასვლა"
+  }
+}
