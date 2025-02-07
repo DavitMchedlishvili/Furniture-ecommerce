@@ -362,7 +362,7 @@ const CreateProductForm = () => {
     }));
 
 
-    if (selectedCategory === "Chairs" || selectedCategory === "Armchairs" || selectedCategory === "Lounge seatings" || selectedCategory === "Barstools")  {
+    if (selectedCategory === "chairs" || selectedCategory === "armchairs" || selectedCategory === "loungeseatings" || selectedCategory === "barstools")  {
       setFormData((prevState) => ({
         ...prevState,
         height: "0",
@@ -370,7 +370,7 @@ const CreateProductForm = () => {
     }
 
     // Reset seatHeight and totalHeight to null for "Accessories" category
-    if (selectedCategory === "Accessories" || selectedCategory === "Tables") {
+    if (selectedCategory === "Accessories" || selectedCategory === "tables") {
       setFormData((prevState) => ({
         ...prevState,
         seatHeight: "0",
