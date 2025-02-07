@@ -36,7 +36,12 @@ export default async function Category({
   }
 
   if (!products || products.length === 0) {
-    return <div>No products found for this category.</div>;
+    return <div className="flex  flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700">
+    <div className="flex w-[50%] items-center justify-center gap-6  p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-gray-100 dark:border-slate-800">
+      No products found for this category.
+    </div>
+  </div>
+  
   }
 
   console.log(products);

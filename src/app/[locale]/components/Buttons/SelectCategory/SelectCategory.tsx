@@ -56,12 +56,12 @@ const SelectCategory: React.FC<SelectCategoryProps> = ({
         required
       >
         <option value="">Select a category</option>
-        <option value="Chairs">Chairs</option>
-        <option value="Armchairs">Armchairs</option>
-        <option value="Lounge Seatings">Lounge Seatings</option>
-        <option value="Barstools">Barstools</option>
-        <option value="Tables">Tables</option>
-        <option value="Accessories">Accessories</option>
+        <option value="chairs">Chairs</option>
+        <option value="armchairs">Armchairs</option>
+        <option value="loungeseatings">Lounge Seatings</option>
+        <option value="barstools">Barstools</option>
+        <option value="tables">Tables</option>
+        <option value="accessories">Accessories</option>
       </select>
 
       {/* Table-specific fields */}
@@ -134,7 +134,7 @@ const SelectCategory: React.FC<SelectCategoryProps> = ({
       )}
 
       {/* Chair/Armchairs/LoungeSeatings/Bearstools-specific fields */}
-      {(value === "Chairs" || value === "Armchairs" || value === "Barstools" || value === "Lounge Seatings") && (
+      {(value === "chairs" || value === "armchairs" || value === "barstools" || value === "loungeseatings") && (
         <>
           <div className="flex flex-col">
             <label

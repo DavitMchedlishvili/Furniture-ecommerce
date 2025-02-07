@@ -58,14 +58,23 @@ const DeleteButton: React.FC<DeleteButtonProps> = ({ text, recordId, table }) =>
 
   const handleDelete = async (event: React.FormEvent) => {
     event.preventDefault(); // Prevent the default form submission behavior
-    const result = await deleteRecord(table, recordId);
-    if (result.success) {
-      // Handle successful deletion, e.g., show a message or refresh the list
-      console.log(`${text} deleted successfully`);
-      router.push(`/${locale}/${table}`); // Redirect to the products page with the current locale
-    } else {
-      // Handle error if deletion failed
-      console.error(`Failed to delete ${text}:`, result.error);
+  
+    try {
+      const result = await deleteRecord(table, recordId);
+  
+      if (result.success) {
+        // Handle successful deletion, e.g., show a message or refresh the list
+        console.log(`${text} deleted successfully`);
+        router.push(`/${locale}/${table}`); // Redirect to the products page with the current locale
+      } else {
+        // Show the error message in an alert
+        const error = result.error as { message: string; details: string };
+        alert(`Failed to delete ${text}. Error: ${error.message}\nDetails: ${error.details}`);
+      }
+      
+    } catch (error) {
+
+      alert(`An unexpected error occurred while deleting ${text}. Please try again.`);
     }
   };
 
