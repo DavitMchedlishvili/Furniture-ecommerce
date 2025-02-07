@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Link } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import Image from "next/image";
@@ -17,35 +17,36 @@ interface PostCardProps {
 }
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
+  const router = useRouter();
+  const locale = useLocale();
 
-    const router = useRouter();
-      const locale = useLocale();
-    
-      const handleViewPost = () => {
-        router.push(`/${locale}/posts/${post.id}`);
-      };
+  const handleViewPost = () => {
+    router.push(`/${locale}/posts/${post.id}`);
+  };
 
   return (
-    <div className="w-full border-2 border-red-500 sm:w-[30%] md:w-[22%] lg:w-[100%] mt-4 p-4 transition-all hover:shadow-[0px_10px_20px_rgba(0,0,0,0.2)] dark:bg-white">
+    <div className="w-full mt-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all">
       <Image
         src={post.image || "/default-image.png"}
-        alt={post.title || "Product image"}
+        alt={post.title || "Post image"}
         width={500}
-        height={500}
+        height={300}
+        className="m-auto"
       />
 
-      <h3 className="text-xl font-semibold mt-4">
-        {post.title}
-      </h3>
-      <p className="text-sm mt-2">{post.body}</p>
-      <span
+      <div className="p-4">
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white truncate">{post.title}</h3>
+        <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 line-clamp-3">{post.body}</p>
+        <span
           onClick={handleViewPost}
-          className="hover:underline cursor-pointer text-sm"
+          className="mt-4 inline-block text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-500 cursor-pointer text-sm"
         >
           View Post
         </span>
+      </div>
     </div>
   );
 };
 
 export default PostCard;
+

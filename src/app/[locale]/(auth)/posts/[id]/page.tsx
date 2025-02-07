@@ -1,7 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { redirect } from "next/navigation";
+
 import DeleteButton from "@/app/[locale]/components/Buttons/DeleteButton";
 
 import EditPostFunction from "@/app/[locale]/components/Buttons/EditPost/EditPost";
@@ -10,6 +10,7 @@ interface Params {
   id: number;
   locale: string;
 }
+
 
 export default async function PostPage({
   params,
@@ -52,32 +53,38 @@ export default async function PostPage({
   const body = locale === "en" ? data.body : data.body_ka;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700">
-      <div className="flex w-[80%] p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
-        <div className="image w-[50%] bg-white items-center flex justify-center">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700 p-4 md:p-8">
+      <div className="flex flex-col md:flex-row w-full  p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
+    
+        <div className="w-full md:w-[50%] flex justify-center items-center p-4">
           <Image
             src={data.image || "/default-image.png"}
             alt={data.title || "Post image"}
             width={500}
             height={500}
+            className="w-full h-auto max-h-[300px] md:max-h-[500px] object-cover rounded-lg"
           />
         </div>
-        <div className="content w-[50%] p-20 border-l-2 border-black bg-white">
-          <ul className="flex flex-col justify-center gap-3">
-            <li className="text-3xl font-bold">{title}</li>
-            <li className="mt-2">{body}</li>
+
+        
+        <div className="w-full md:w-[50%] p-6 md:p-10 border-t-2 md:border-l-2 md:border-t-0 border-black bg-white dark:bg-slate-700 max-h-[600px] overflow-y-auto">
+          <ul className="flex flex-col gap-3">
+            <li className="text-2xl md:text-3xl font-bold">{title}</li>
+            <li className="mt-2 text-sm md:text-base">{body}</li>
           </ul>
 
           {isAdmin && (
-            <div>
-              {/* Render the SaveButton client-side */}
+            <div className="mt-6 flex flex-col gap-4">
+              {/* Edit Post Button */}
               <EditPostFunction
                 postId={id}
                 initialTitle={data.title}
                 initialBody={data.body}
-                locale={locale}
+                initialTitle_ka={data.title_ka}
+                initialBody_ka={data.body_ka}
               />
 
+              {/* Delete Button */}
               <DeleteButton text={"post"} recordId={data.id} table="posts" />
             </div>
           )}

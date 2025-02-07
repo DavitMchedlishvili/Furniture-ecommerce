@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { ThemeProvider } from 'next-themes';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -32,6 +33,7 @@ export default async function LocaleLayout({
           <ThemeProvider defaultTheme="system" enableSystem attribute="class">
             <Header />
             {children}
+            <Footer/>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

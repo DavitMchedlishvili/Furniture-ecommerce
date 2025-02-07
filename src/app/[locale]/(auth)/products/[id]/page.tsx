@@ -72,7 +72,7 @@ export default async function ProductPage({
   const name = locale === "en" ? data.name : data.name_ka;
   const color = locale === "en" ? data.color_en : data.color_ka;
   const woodType = locale === "en" ? data.wood_type_en : data.wood_type_ka;
-  const price = data.price
+  const price = data.price;
 
   // Extract the category from the product data
   const category = data.category; // Assuming the product category is available in the data object
@@ -90,8 +90,8 @@ export default async function ProductPage({
   if (data) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700">
-        <div className="  flex w-[80%] p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
-          <div className="image w-[50%] bg-white items-center flex justify-center">
+        <div className="flex flex-col md:flex-row w-full md:w-[80%] p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
+          <div className="image w-full md:w-[50%] bg-white flex justify-center mb-6 md:mb-0">
             <Image
               src={data.image || "/default-image.png"}
               alt={data.name || "Product image"}
@@ -99,7 +99,7 @@ export default async function ProductPage({
               height={500}
             />
           </div>
-          <div className=" w-[50%] p-20 border-l-2 border-black bg-white max-h-[600px] overflow-x-auto scrollbar ">
+          <div className="w-full md:w-[50%] p-6 md:p-20 border-l-2  border-black bg-white max-h-[600px] overflow-x-auto scrollbar">
             <div className="w-full mb-5">
               <div className="w-full flex flex-col gap-4">
                 <div className="flex justify-between">
@@ -180,13 +180,9 @@ export default async function ProductPage({
             />
 
             {isAdmin && <DeleteButton text={"product"} recordId={data.id} table="products" />}
-
-            
-
           </div>
         </div>
       </div>
     );
   }
 }
-

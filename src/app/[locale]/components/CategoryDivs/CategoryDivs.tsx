@@ -4,7 +4,7 @@ import React from "react";
 
 const CategoryDivs = () => {
   return (
-    <div className="w-[90%] m-auto mt-5 flex flex-col gap-5">
+    <div className="w-[90%] m-auto mt-5 mb-[50px] flex flex-col gap-5">
       <h1 className="underline my-5 text-lg bold">
         CATEGORIES
       </h1>

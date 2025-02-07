@@ -1,7 +1,7 @@
 "use server";
 import { createClient } from "../supabase/server";
 
-export async function editPost(postId: number, updatedData: { title?: string; description?: string; price?: number; image?: string }) {
+export async function editPost(postId: number, updatedData: { title?: string; description?: string; price?: number; image?: string,}) {
     const supabase = await createClient();
 
     try {
