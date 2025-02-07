@@ -4,6 +4,7 @@ import fetchCart from "../../hooks/fetchCart";
 import CheckoutFormCart from "../../components/PurchaseProducts/CartCheckout";
 import { useLocale } from "next-intl";
 import { CartItems } from "@/types/CartItems";
+import Image from "next/image";
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState<CartItems[]>([]);
@@ -44,8 +45,14 @@ const CartPage = () => {
                 className="flex flex-col bg-white border border-black  shadow-md dark:bg-slate-700 dark:border-slate-600"
                 key={item.id}
               >
-                <div className="w-full h-64 bg-gray-100 dark:bg-slate-600 mb-4 flex justify-center items-center rounded-t-lg">
-                  <span className="text-gray-400 text-lg">Image Placeholder</span>
+                <div className="w-full h-70 bg-gray-100 dark:bg-slate-600 mb-4 flex justify-center items-center rounded-t-lg">
+                   <Image
+                          src={item.image || "/default-image.png"}
+                          alt={item.name || "Product image"}
+                          width={300}
+                          height={300}
+                         
+                        />
                 </div>
                 <div className="px-4 py-3">
                   <h2 className="text-2xl font-semibold text-gray-800 dark:text-white">

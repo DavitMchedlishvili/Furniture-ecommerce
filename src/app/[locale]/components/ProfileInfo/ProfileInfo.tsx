@@ -14,11 +14,9 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
 
   const [isAdmin, setIsAdmin] = useState(false); // To check if the user is an admin
 
-  // Move checkAdminStatus function outside the useEffect and wrap it in useCallback
   const checkAdminStatus = useCallback(async () => {
     setLoading(true); // Set loading true when the check starts
     try {
-      // Assuming 'role' is a part of the profile data
       const { data: profileData, error } = await supabase
         .from("profiles")
         .select("role")
@@ -37,12 +35,12 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
     } finally {
       setLoading(false); // Set loading false when the check is done
     }
-  }, [profile.user_id]); // Add profile.user_id as a dependency
+  }, [profile.user_id]);
 
   useEffect(() => {
     setUserProfile(profile); // Set initial profile state from the prop
     checkAdminStatus(); // Check if the user is an admin
-  }, [profile, checkAdminStatus]); // Include checkAdminStatus in the dependency array
+  }, [profile, checkAdminStatus]);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -87,7 +85,7 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-lg p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
         <h2 className="text-2xl font-bold text-center dark:text-black text-gray-700 mb-6">
           Edit Your Profile
@@ -126,7 +124,7 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
       </div>
 
       {isAdmin && (
-        <div className="w-full flex flex-col max-w-lg p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
+        <div className="w-full flex flex-col max-w-lg p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800 mt-6">
           <h2 className="text-2xl font-bold text-center dark:text-black text-gray-700 mb-6">
             Admin Features
           </h2>
