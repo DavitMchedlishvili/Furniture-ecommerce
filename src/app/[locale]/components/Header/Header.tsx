@@ -28,20 +28,20 @@ export const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex w-[40%] justify-between items-center">
-          <Link className="nav-link" href={"/products"}>
+          <Link className="nav-link hover:underline" href={"/products"}>
             {t("Products")}
           </Link>
-          <Link className="nav-link" href={"#"}>
-            {t("Exhibition")}
+          <Link className="nav-link hover:underline" href={"/posts"}>
+            {t("Posts")}
           </Link>
-          <Link className="nav-link" href={"#"}>
-            {t("Blog")}
+          <Link className="nav-link hover:underline" href={"/subscription"}>
+            {t("Subscriptions")}
           </Link>
-          <Link className="nav-link" href={"#"}>
-            {t("About Us")}
+          <Link className="nav-link hover:underline" href={"/about"}>
+            {t("About")}
           </Link>
-          <Link className="nav-link" href={"#"}>
-            {t("Contact")}
+          <Link className="nav-link hover:underline" href={"/contact-us"}>
+            {t("Contact us")}
           </Link>
         </nav>
 
@@ -71,17 +71,17 @@ export const Header = () => {
           <Link className="nav-link-mobile" href={"/products"} onClick={() => setMenuOpen(false)}>
             {t("Products")}
           </Link>
-          <Link className="nav-link-mobile" href={"#"} onClick={() => setMenuOpen(false)}>
-            {t("Exhibition")}
+          <Link className="nav-link-mobile" href={"/posts"} onClick={() => setMenuOpen(false)}>
+            {t("Posts")}
           </Link>
-          <Link className="nav-link-mobile" href={"#"} onClick={() => setMenuOpen(false)}>
-            {t("Blog")}
+          <Link className="nav-link-mobile" href={"/subscriptions"} onClick={() => setMenuOpen(false)}>
+            {t("Subscriptions")}
           </Link>
-          <Link className="nav-link-mobile" href={"#"} onClick={() => setMenuOpen(false)}>
-            {t("About Us")}
+          <Link className="nav-link-mobile" href={"/about"} onClick={() => setMenuOpen(false)}>
+            {t("About")}
           </Link>
-          <Link className="nav-link-mobile" href={"#"} onClick={() => setMenuOpen(false)}>
-            {t("Contact")}
+          <Link className="nav-link-mobile" href={"/contact-us"} onClick={() => setMenuOpen(false)}>
+            {t("Contact us")}
           </Link>
 
           <div className="flex gap-3 mt-4">

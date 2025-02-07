@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Input from "../Inputs/input";
 import SubmitButton from "../Buttons/SubmitButton";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { createPostFunction } from "@/utils/posts/createPostFunction";
 import { uploadPhoto } from "@/utils/uploadPhoto/uploadPhoto";
 
@@ -14,6 +14,7 @@ const CreatePostForm = () => {
   const [postImage, setPostImage] = useState("");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const locale = useLocale();
+  const t = useTranslations("CreatePost"); // Define translation namespace for this page
 
   const [loading, setLoading] = useState(false);
 
@@ -55,7 +56,7 @@ const CreatePostForm = () => {
 
       <div className="mb-4">
         <label htmlFor="title" className="block">
-          Title
+          {t("Title")}
         </label>
         <Input
           type="text"
@@ -68,7 +69,7 @@ const CreatePostForm = () => {
 
       <div className="mb-4">
         <label htmlFor="title_ka" className="block">
-          Title (Georgian)
+          {t("TitleGeorgian")}
         </label>
         <Input
           type="text"
@@ -81,7 +82,7 @@ const CreatePostForm = () => {
 
       <div className="mb-4">
         <label htmlFor="body" className="block">
-          Body
+          {t("Body")}
         </label>
         <textarea
           id="body"
@@ -94,7 +95,7 @@ const CreatePostForm = () => {
 
       <div className="mb-4">
         <label htmlFor="body_ka" className="block">
-          Body (Georgian)
+          {t("BodyGeorgian")}
         </label>
         <textarea
           id="body_ka"
@@ -107,7 +108,7 @@ const CreatePostForm = () => {
 
       <div className="mb-4">
         <label htmlFor="post_image" className="block">
-          Post Image URL
+          {t("PostImage")}
         </label>
         <Input
           type="file"
@@ -117,7 +118,7 @@ const CreatePostForm = () => {
         />
       </div>
 
-      <SubmitButton text={"Save Post"} />
+      <SubmitButton text={t("SavePost")} />
     </form>
   );
 };

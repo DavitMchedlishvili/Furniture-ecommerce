@@ -2,12 +2,14 @@ import { Link } from "@/i18n/routing";
 import React, { useEffect, useState } from "react";
 import Image from 'next/image';
 import LogOutBtn from "../LogOutBtn/LogOutBtn";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+ // Import useTranslation hook
 
 const ProfileDropDown = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false); // Track the login status
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Track the dropdown visibility
   const locale = useLocale();
+  const t = useTranslations();  // Use the useTranslation hook for translations
 
   useEffect(() => {
     // Fetch authentication status when the component mounts
@@ -56,7 +58,7 @@ const ProfileDropDown = () => {
               href="/profile"
               className="px-2 py-1 text-sm text-black hover:bg-gray-100 block dark:bg-slate-800 dark:hover:bg-slate-500"
             >
-              Profile
+              {t('profileDropDown.profile')} {/* Use translation key for Profile */}
             </Link>
             <LogOutBtn />
           </>
@@ -67,13 +69,13 @@ const ProfileDropDown = () => {
               href="/login"
               className="px-2 py-1 text-sm text-black hover:bg-gray-100 block dark:bg-slate-800 dark:hover:bg-slate-500"
             >
-              Log In
+              {t('profileDropDown.login')} {/* Use translation key for Login */}
             </Link>
             <Link
               href="/signup"
               className="px-2 py-1 text-sm text-black hover:bg-gray-100 block dark:bg-slate-800 dark:hover:bg-slate-500"
             >
-              Sign Up
+              {t('profileDropDown.signup')} {/* Use translation key for Sign Up */}
             </Link>
           </>
         )}
@@ -83,3 +85,4 @@ const ProfileDropDown = () => {
 };
 
 export default ProfileDropDown;
+

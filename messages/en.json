@@ -1,30 +1,131 @@
 {
-    "Header": {
-      "Products": "Products",
+  "Header": {
+    "Products": "Products",
 
-      "Exhibition": "Exhibition",
-      "Blog": "Blog",
-      "About Us": "About Us",
-      "Contact": "Contact"
-    },
+    "Posts": "Posts",
+    "Subscriptions": "Subscriptions",
+    "About": "About",
+    "Contact us": "Contact Us"
+  },
 
-    "Hero":{
-      "Learn More": "Learn More"
-    },
-    
-    "Login": {
-      "Login": "Login",
-      "Email": "Email",
-      "placeholderEmail": "Enter your Email",
-      "placeholderPass": "Enter your password",
-      "Password": "Password",
-      "Login With GitHub": "Login with GitHub",
-      "Go back to Login": "Go back to Login",
-      "headerPassword": "Reset Password",
-      "submitResPass": "Reset Password",
-      "Please check your email to reset your password!": "Please check your email to reset your password!",
-      "Don't have an account?": "Don't have an account?",
-      "Register": "Register"
+  "Hero": {
+    "Tables": "Tables"
+  },
 
-    }
+  "Login": {
+    "Login": "Login",
+    "Email": "Email",
+    "Password": "Password",
+    "placeholderEmail": "Enter your email",
+    "Enter your password": "Enter your password",
+    "Login With GitHub": "Login with GitHub",
+    "Reset password": "Forgot your password?",
+    "submitResPass": "Send Reset Email",
+    "headerPassword": "Reset Password",
+    "Please check your email to reset your password!": "Please check your email to reset your password!",
+    "Go back to Login": "Go back to Login",
+    "Don't have an account?": "Don't have an account?",
+    "Register": "Sign Up",
+    "An unexpected error occurred": "An unexpected error occurred. Please try again."
+  },
+
+  "SignUp": {
+    "Sign Up": "Sign Up",
+    "Email": "Email",
+    "Enter your email": "Enter your email",
+    "Password": "Password",
+    "Enter your password": "Enter your password"
+  },
+
+  "Category": {
+    "Categories": "Categories",
+    "Chairs": "Chairs",
+    "BarStools": "Bar Stools",
+    "ArmChairs": "Arm chairs",
+    "LoungeSeats": "Lounge Seats",
+    "Accessories": "Accessories",
+    "Tables": "Tables"
+  },
+
+  "Footer": {
+    "ContactUs": "Contact Us",
+    "AboutUs": "About Us",
+    "Products": "Products",
+    "Posts": "Posts",
+    "Cart": "Cart"
+  },
+
+  "Cart": {
+    "YourCart": "Your Cart",
+    "EmptyCartMessage": "Your cart is empty. Add some products to it!",
+    "Price": "Price",
+    "Quantity": "Quantity"
+  },
+
+  "Contact": {
+    "FullName": "Full Name",
+    "FullNamePlaceholder": "Full Name",
+    "EmailAddress": "Email Address",
+    "EmailPlaceholder": "example@domain.com",
+    "Message": "Message",
+    "MessagePlaceholder": "Type your message",
+    "SubmitButton": "Submit"
+  },
+
+  "CreatePost": {
+    "Title": "Title",
+    "TitleGeorgian": "Title (Georgian)",
+    "Body": "Body",
+    "BodyGeorgian": "Body (Georgian)",
+    "PostImage": "Post Image",
+    "SavePost": "Save Post"
+  },
+
+  "ProfileForm": {
+    "Name": "Name",
+    "Lastname": "Lastname",
+    "DateOfBirth": "Date of Birth",
+    "SaveProfile": "Save Profile"
+  },
+
+  "profile": {
+    "editProfile": "Edit Your Profile",
+    "username": "Username",
+    "lastname": "Lastname",
+    "dateOfBirth": "Date of Birth",
+    "saving": "Saving...",
+    "updateProfile": "Update Profile",
+    "profileUpdated": "Profile updated successfully!",
+    "error": "Error",
+    "adminFeatures": "Admin Features",
+    "createProduct": "Create Product",
+    "createPost": "Create Post"
+  },
+
+  "PostCard": {
+    "viewPost": "View Post"
+  },
+
+  "ProductsCard": {
+    "viewProduct": "View Product",
+    "price": "Price",
+    "addToCart": "Add To Cart"
+  },
+
+ 
+  "products": {
+
+    "error": "Failed to load products. Please try again.",
+    "noProducts": "Sorry, there are no products."
+  },
+
+  "profileDropDown": {
+    "profile": "Profile",
+    "login": "Log In",
+    "signup": "Sign Up"
+  },
+
+  "logOutBtn": {
+    "logout": "Log Out"
   }
+}

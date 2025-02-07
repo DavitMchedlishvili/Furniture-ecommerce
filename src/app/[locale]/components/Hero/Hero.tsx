@@ -1,4 +1,5 @@
 "use client";
+import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
@@ -33,9 +34,9 @@ const Hero: React.FC = () => {
       </video>
 
       <div className="absolute inset-0 flex top-[65%] items-center justify-center">
-        <button className="text-black border-2 border-black py-3 px-5 hover:text-lg hover:bg-white dark:hover:bg-slate-700 hover:py-3.5  hover:px-5.5 transition-all duration-500">
-        {t('Learn More')}
-        </button>
+        <Link href={"/products/category/tables"} className="text-black border-2 border-black py-3 px-5 hover:text-lg hover:bg-white dark:hover:bg-slate-700 hover:py-3.5  hover:px-5.5 transition-all duration-500">
+        {t('Tables')}
+        </Link>
       </div>
     </div>
   );
