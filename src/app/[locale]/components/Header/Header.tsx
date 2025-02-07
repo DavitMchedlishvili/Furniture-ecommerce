@@ -27,7 +27,7 @@ export const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex w-[40%] justify-between items-center">
+        <nav className="hidden md:flex md:w-[40%] justify-between items-center gap-4">
           <Link className="nav-link hover:underline" href={"/products"}>
             {t("Products")}
           </Link>
@@ -37,11 +37,11 @@ export const Header = () => {
           <Link className="nav-link hover:underline" href={"/subscription"}>
             {t("Subscriptions")}
           </Link>
-          <Link className="nav-link hover:underline" href={"/about"}>
-            {t("About")}
+          <Link className="nav-link hover:underline" href={"/cart"}>
+            {t("Cart")}
           </Link>
           <Link className="nav-link hover:underline" href={"/contact-us"}>
-            {t("Contact us")}
+            {t("Contact")}
           </Link>
         </nav>
 
@@ -68,20 +68,40 @@ export const Header = () => {
           <button className="self-end" onClick={() => setMenuOpen(false)}>
             <X size={30} />
           </button>
-          <Link className="nav-link-mobile" href={"/products"} onClick={() => setMenuOpen(false)}>
+          <Link
+            className="nav-link-mobile"
+            href={"/products"}
+            onClick={() => setMenuOpen(false)}
+          >
             {t("Products")}
           </Link>
-          <Link className="nav-link-mobile" href={"/posts"} onClick={() => setMenuOpen(false)}>
+          <Link
+            className="nav-link-mobile"
+            href={"/posts"}
+            onClick={() => setMenuOpen(false)}
+          >
             {t("Posts")}
           </Link>
-          <Link className="nav-link-mobile" href={"/subscriptions"} onClick={() => setMenuOpen(false)}>
+          <Link
+            className="nav-link-mobile"
+            href={"/subscriptions"}
+            onClick={() => setMenuOpen(false)}
+          >
             {t("Subscriptions")}
           </Link>
-          <Link className="nav-link-mobile" href={"/about"} onClick={() => setMenuOpen(false)}>
-            {t("About")}
+          <Link
+            className="nav-link-mobile"
+            href={"/cart"}
+            onClick={() => setMenuOpen(false)}
+          >
+            {t("Cart")}
           </Link>
-          <Link className="nav-link-mobile" href={"/contact-us"} onClick={() => setMenuOpen(false)}>
-            {t("Contact us")}
+          <Link
+            className="nav-link-mobile"
+            href={"/contact-us"}
+            onClick={() => setMenuOpen(false)}
+          >
+            {t("Contact")}
           </Link>
 
           <div className="flex gap-3 mt-4">
@@ -96,4 +116,5 @@ export const Header = () => {
 };
 
 export default Header;
+
 
