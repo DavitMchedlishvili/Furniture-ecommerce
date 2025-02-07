@@ -1,23 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "./components/Header/Header"
+
 
 export const metadata: Metadata = {
-  title: "Jorko",
+  title: "14 Chair",
   description: "Furniture e-commerce site",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+interface Props {
   children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body>
-        <Header/>
-        {children}
-      </body>
-    </html>
-  );
+}
+
+export default function RootLayout({ children }: Props) {
+  return children;
 }

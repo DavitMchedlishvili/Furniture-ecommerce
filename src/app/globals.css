@@ -15,7 +15,64 @@
 } */
 
 body {
+  color: #000;
+  background-color: #fff;
+}
+
+[data-theme="dark"] body {
+  background-color: #000;
+  color: #fff;
+}
+
+body {
   /* color: var(--foreground);
   background: var(--background); */
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+@layer utilities {
+  .scrollbar {
+    /* Webkit browsers (Chrome, Safari, Edge) */
+    &::-webkit-scrollbar {
+      width: 10px; /* Width of the scrollbar */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #4b5563; /* Color of the thumb */
+      border-radius: 5px; /* Rounded corners */
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #f3f4f6; /* Color of the track */
+      border-radius: 5px;
+    }
+
+    /* Firefox */
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #4b5563 #f3f4f6; /* Thumb and track colors */
+  }
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #fff; /* Set background for the dropdown */
+  color: #333;
+}
+
+select option {
+  background-color: #f0f0f0; /* Background color for options */
+  color: #333; /* Text color */
+}
+
+select option:hover {
+  background-color: #d1d5db; /* Hover background color */
+}
+
+select option:checked {
+  background-color: gray; /* Background color for selected option */
+  color: white; /* Text color for selected option */
 }
