@@ -24,9 +24,6 @@ const Footer = () => {
           <Link href="/contact-us" className="hover:text-black transition-colors duration-300">
             {t("ContactUs")}
           </Link>
-          <Link href="/about" className="hover:text-black transition-colors duration-300">
-            {t("AboutUs")}
-          </Link>
           <Link href="/products" className="hover:text-black transition-colors duration-300">
             {t("Products")}
           </Link>

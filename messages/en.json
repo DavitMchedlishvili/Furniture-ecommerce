@@ -4,8 +4,8 @@
 
     "Posts": "Posts",
     "Subscriptions": "Subscriptions",
-    "About": "About",
-    "Contact us": "Contact Us"
+    "Cart": "Cart",
+    "Contact": "Contact"
   },
 
   "Hero": {
@@ -49,7 +49,6 @@
 
   "Footer": {
     "ContactUs": "Contact Us",
-    "AboutUs": "About Us",
     "Products": "Products",
     "Posts": "Posts",
     "Cart": "Cart"
