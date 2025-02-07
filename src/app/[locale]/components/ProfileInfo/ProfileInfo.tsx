@@ -6,16 +6,18 @@ import { supabase } from "@/utils/supabase/supabase";
 import { ProfileProps } from "@/types/ProfileProps";
 import SubmitButton from "../Buttons/SubmitButton";
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
+  const t = useTranslations("profile"); 
   const [userProfile, setUserProfile] = useState<ProfileProps>(profile);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const [isAdmin, setIsAdmin] = useState(false); // To check if the user is an admin
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const checkAdminStatus = useCallback(async () => {
-    setLoading(true); // Set loading true when the check starts
+    setLoading(true);
     try {
       const { data: profileData, error } = await supabase
         .from("profiles")
@@ -25,21 +27,21 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
 
       if (error) {
         console.error("Error fetching role:", error);
-        setIsAdmin(false); // Default to false if error occurs
+        setIsAdmin(false);
       } else {
         setIsAdmin(profileData?.role === "admin");
       }
     } catch (error) {
       console.error("Error checking admin status:", error);
-      setIsAdmin(false); // Default to false in case of failure
+      setIsAdmin(false);
     } finally {
-      setLoading(false); // Set loading false when the check is done
+      setLoading(false);
     }
   }, [profile.user_id]);
 
   useEffect(() => {
-    setUserProfile(profile); // Set initial profile state from the prop
-    checkAdminStatus(); // Check if the user is an admin
+    setUserProfile(profile);
+    checkAdminStatus();
   }, [profile, checkAdminStatus]);
 
   const handleInputChange = (
@@ -68,7 +70,7 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
         throw updateError;
       }
 
-      alert("Profile updated successfully!");
+      alert(t("profileUpdated"));
     } catch (error) {
       setError((error as Error).message);
     } finally {
@@ -81,17 +83,17 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div>{t("error")}: {error}</div>;
   }
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-lg p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
         <h2 className="text-2xl font-bold text-center dark:text-black text-gray-700 mb-6">
-          Edit Your Profile
+          {t("editProfile")}
         </h2>
         <div className="mb-4">
-          <label className="font-bold">Username</label>
+          <label className="font-bold">{t("username")}</label>
           <Input
             type="text"
             name="name"
@@ -100,7 +102,7 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
           />
         </div>
         <div className="mb-4">
-          <label className="font-bold">Lastname</label>
+          <label className="font-bold">{t("lastname")}</label>
           <Input
             name="lastname"
             value={userProfile.lastname}
@@ -108,7 +110,7 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
           />
         </div>
         <div className="mb-4">
-          <label className="font-bold">Date of Birth</label>
+          <label className="font-bold">{t("dateOfBirth")}</label>
           <Input
             type="date"
             name="date_of_birth"
@@ -117,7 +119,7 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
           />
         </div>
         <SubmitButton
-          text={loading ? "Saving..." : "Update Profile"}
+          text={loading ? t("saving") : t("updateProfile")}
           disabled={loading}
           onClick={handleSaveProfile}
         />
@@ -126,21 +128,21 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
       {isAdmin && (
         <div className="w-full flex flex-col max-w-lg p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800 mt-6">
           <h2 className="text-2xl font-bold text-center dark:text-black text-gray-700 mb-6">
-            Admin Features
+            {t("adminFeatures")}
           </h2>
 
           <Link
             href="/create-product"
             className="text-center w-full mt-2 p-2 text-black bg-transparent border-2 border-black hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-500"
           >
-            Create Product
+            {t("createProduct")}
           </Link>
 
           <Link
             href="/create-post"
             className="text-center w-full mt-2 p-2 text-black bg-transparent border-2 border-black hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-500"
           >
-            Create Post
+            {t("createPost")}
           </Link>
         </div>
       )}
@@ -149,3 +151,4 @@ const ProfileInfo = ({ profile }: { profile: ProfileProps }) => {
 };
 
 export default ProfileInfo;
+

@@ -14,7 +14,7 @@ const LoadingSpinner = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center min-h-screen ">
+    <div className="flex items-center justify-center min-h/2-screen ">
       <Image
         src={loadingGif} // Path to your loading GIF
         alt="Loading..."

@@ -2,9 +2,8 @@
 import { useState } from "react";
 import Input from "../Inputs/input";
 import SubmitButton from "../Buttons/SubmitButton";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { createProfile } from "@/utils/profiles/createProfilefunction";
-// Function to create the profile
 
 const ProfileForm = () => {
   const [name, setName] = useState("");
@@ -12,6 +11,7 @@ const ProfileForm = () => {
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const locale = useLocale();
+  const t = useTranslations("ProfileForm"); // Translation namespace
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,16 +28,17 @@ const ProfileForm = () => {
     if (result.error) {
       setErrorMessage(result.error);
     } else {
-        window.location.reload();
+      window.location.reload();
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+
       <div className="mb-4">
         <label htmlFor="name" className="block">
-          Name
+          {t("Name")}
         </label>
         <Input
           type="text"
@@ -50,7 +51,7 @@ const ProfileForm = () => {
 
       <div className="mb-4">
         <label htmlFor="lastname" className="block">
-          Lastname
+          {t("Lastname")}
         </label>
         <Input
           type="text"
@@ -63,7 +64,7 @@ const ProfileForm = () => {
 
       <div className="mb-4">
         <label htmlFor="date_of_birth" className="block">
-          Date of birth
+          {t("DateOfBirth")}
         </label>
         <Input
           type="date"
@@ -74,7 +75,7 @@ const ProfileForm = () => {
         />
       </div>
 
-      <SubmitButton text={"Save Profile"} />
+      <SubmitButton text={t("SaveProfile")} />
     </form>
   );
 };

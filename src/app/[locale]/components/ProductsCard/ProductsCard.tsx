@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { ProductProps } from "@/types/ProductProps";
 import { useRouter } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 interface ProductCardProps {
   product: ProductProps;
@@ -13,6 +13,7 @@ interface ProductCardProps {
 const ProductsCard: React.FC<ProductCardProps> = ({ product, addToCart }) => {
   const router = useRouter();
   const locale = useLocale();
+  const t = useTranslations("ProductsCard"); // Initialize translations for "ProductsCard"
 
   const handleViewProduct = () => {
     router.push(`/${locale}/products/${product.id}`);
@@ -28,7 +29,7 @@ const ProductsCard: React.FC<ProductCardProps> = ({ product, addToCart }) => {
       {/* Image */}
       <Image
         src={product.image || "/default-image.png"}
-        alt={product.name || "Product image"}
+        alt={product.name || "defaultImageAlt"} // Use translated alt text
         width={500}
         height={500}
         className="w-full h-64 object-cover rounded-lg"
@@ -37,13 +38,13 @@ const ProductsCard: React.FC<ProductCardProps> = ({ product, addToCart }) => {
       <div className="flex justify-between mt-4">
         <span
           onClick={handleViewProduct}
-          className="hover:underline cursor-pointer text-sm text-black dark:text-white"
+          className="hover:underline cursor-pointer text-sm text-black dark:text-black"
         >
-          View Product
+          {t("viewProduct")} {/* Use translated text for "View Product" */}
         </span>
 
         <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-          Price: {product.price}$
+          {t("price")}: {product.price}${" "} {/* Use translated text for "Price" */}
         </span>
       </div>
 
@@ -51,10 +52,11 @@ const ProductsCard: React.FC<ProductCardProps> = ({ product, addToCart }) => {
         className="w-full mt-4 py-2 text-black bg-transparent border-2 border-black hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-500 "
         onClick={handleAddToCart}
       >
-        Add To Cart
+        {t("addToCart")} {/* Use translated text for "Add To Cart" */}
       </button>
     </div>
   );
 };
 
 export default ProductsCard;
+

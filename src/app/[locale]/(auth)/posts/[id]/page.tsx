@@ -3,14 +3,13 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import DeleteButton from "@/app/[locale]/components/Buttons/DeleteButton";
-
 import EditPostFunction from "@/app/[locale]/components/Buttons/EditPost/EditPost";
+
 
 interface Params {
   id: number;
   locale: string;
 }
-
 
 export default async function PostPage({
   params,
@@ -52,21 +51,22 @@ export default async function PostPage({
   const title = locale === "en" ? data.title : data.title_ka;
   const body = locale === "en" ? data.body : data.body_ka;
 
+
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-slate-700 p-4 md:p-8">
-      <div className="flex flex-col md:flex-row w-full  p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
+      <div className="flex flex-col md:flex-row w-full p-6 bg-white border border-gray-300 rounded-lg shadow-md dark:bg-slate-700 dark:border-slate-800">
     
         <div className="w-full md:w-[50%] flex justify-center items-center p-4">
           <Image
             src={data.image || "/default-image.png"}
-            alt={data.title || "Post image"}
+            alt={data.title || "defaultImageAlt"} // Translated alt text
             width={500}
             height={500}
             className="w-full h-auto max-h-[300px] md:max-h-[500px] object-cover rounded-lg"
           />
         </div>
 
-        
         <div className="w-full md:w-[50%] p-6 md:p-10 border-t-2 md:border-l-2 md:border-t-0 border-black bg-white dark:bg-slate-700 max-h-[600px] overflow-y-auto">
           <ul className="flex flex-col gap-3">
             <li className="text-2xl md:text-3xl font-bold">{title}</li>
@@ -85,7 +85,7 @@ export default async function PostPage({
               />
 
               {/* Delete Button */}
-              <DeleteButton text={"post"} recordId={data.id} table="posts" />
+              <DeleteButton text={"deletePost"} recordId={data.id} table="posts" />
             </div>
           )}
         </div>
