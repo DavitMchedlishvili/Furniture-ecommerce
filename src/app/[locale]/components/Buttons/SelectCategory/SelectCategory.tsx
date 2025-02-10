@@ -65,7 +65,7 @@ const SelectCategory: React.FC<SelectCategoryProps> = ({
       </select>
 
       {/* Table-specific fields */}
-      {value === "Tables" && (
+      {value === "tables" && (
         <>
         <div className="flex flex-col">
             <label
@@ -221,7 +221,7 @@ const SelectCategory: React.FC<SelectCategoryProps> = ({
           
         </>
       )}
-      {value === "Accessories" && (
+      {value === "accessories" && (
         <>
           <div className="flex flex-col">
             <label
