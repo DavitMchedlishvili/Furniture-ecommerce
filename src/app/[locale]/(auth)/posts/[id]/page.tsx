@@ -59,7 +59,7 @@ export default async function PostPage({
     
         <div className="w-full md:w-[50%] flex justify-center items-center p-4">
           <Image
-            src={data.image || "/default-image.png"}
+            src={data.post_image || "/default-image.png"}
             alt={data.title || "defaultImageAlt"} // Translated alt text
             width={500}
             height={500}
