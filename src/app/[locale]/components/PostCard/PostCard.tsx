@@ -6,7 +6,7 @@ import React from "react";
 
 interface Post {
   id: string;
-  image?: string;
+  post_image?: string;
   title?: string;
   body?: string;
   title_ka?: string;
@@ -33,7 +33,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
     <div className="w-full mt-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all">
       <Image
-        src={post.image || "/default-image.png"}
+        src={post.post_image || "/default-image.png"}
         alt={title || "defaultImageAlt"} // Use translated alt text
         width={500}
         height={300}
